@@ -1,0 +1,103 @@
+{
+  "initial_query": "Investigate rumors about @VerisTruth's data integrity",
+  "current_query": "Find tweets about #VerisProject",
+  "new_evidence": [
+    {
+      "evidence_id": "evd_882c6d69e696",
+      "investigation_id": null,
+      "cycle_id": null,
+      "source_type": "twitter",
+      "url": "https://x.com/aryan36007/status/1961795335489253473",
+      "content": "\"Just came across \n@VerisTruth\n seems like they\u2019re working on tracking online info and reported suggest issues in Data Integrity #VerisProject\"",
+      "timestamp": "2025-09-02 00:05:22.697563",
+      "author_id": "@aryan36007",
+      "media": [
+        {
+          "media_id": "media_20bff75b1303",
+          "media_type": "IMAGE",
+          "url": "https://pbs.twimg.com/media/GzmyP_saAAAZX_d?format=jpg&name=small",
+          "local_path": null,
+          "access_url": null
+        }
+      ],
+      "mentioned_accounts": [
+        "@VerisTruth"
+      ],
+      "hashtags": [
+        "#VerisProject"
+      ],
+      "raw_data": null
+    },
+    {
+      "evidence_id": "evd_3ad831dd1c48",
+      "investigation_id": null,
+      "cycle_id": null,
+      "source_type": "twitter",
+      "url": "https://x.com/aryan36007/status/1961449797094969393",
+      "content": "\"Just came across \n@VerisTruth\n \u2014 seems like they\u2019re working on tracking online info. Interesting project. #VerisProject\"",
+      "timestamp": "2025-09-02 00:05:22.777472",
+      "author_id": "@aryan36007",
+      "media": [],
+      "mentioned_accounts": [
+        "@VerisTruth"
+      ],
+      "hashtags": [
+        "#VerisProject"
+      ],
+      "raw_data": null
+    }
+  ],
+  "new_analysis": [
+    {
+      "analysis_id": "anl_09e65e8dbf7a",
+      "evidence_id": "evd_882c6d69e696",
+      "cycle_id": null,
+      "flag_reason": "Unverified Claim",
+      "trust_score": 0.3,
+      "reasoning": "The tweet expresses an opinion based on limited information, lacking verifiable details about data integrity issues."
+    },
+    {
+      "analysis_id": "anl_b93e2bbc1627",
+      "evidence_id": "evd_3ad831dd1c48",
+      "cycle_id": null,
+      "flag_reason": "Opinion",
+      "trust_score": 0.2,
+      "reasoning": "The tweet is a subjective observation about a project, lacking concrete evidence or factual information."
+    }
+  ],
+  "investigation_cycles": [],
+  "graph_context": {
+    "nodes": [
+      {
+        "id": "@VerisTruth",
+        "type": "AUTHOR"
+      },
+      {
+        "id": "media_20bff75b1303",
+        "type": "MEDIA"
+      },
+      {
+        "id": "@aryan36007",
+        "type": "AUTHOR"
+      }
+    ],
+    "edges": [
+      {
+        "source": "@aryan36007",
+        "target": "@VerisTruth",
+        "label": "MENTIONS"
+      },
+      {
+        "source": "@aryan36007",
+        "target": "media_20bff75b1303",
+        "label": "POSTED"
+      },
+      {
+        "source": "@aryan36007",
+        "target": "@VerisTruth",
+        "label": "MENTIONS"
+      }
+    ]
+  },
+  "next_query": "Analyze the content of media_20bff75b1303 to determine if it supports or refutes claims about @VerisTruth's data integrity."
+}

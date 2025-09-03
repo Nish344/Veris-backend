@@ -1,149 +1,64 @@
+# =============================================================================
+# workflow/refiner.py - CORRECTED VERSION
+# =============================================================================
 #!/usr/bin/env python3
-# workflow/refiner.py
 """
-Refiner node for the verifier pipeline.
+workflow/refiner.py
 
-- enhanced_refinement_node(state, llm): main async entry implementing the refiner logic.
-- FakeLLM: a tiny deterministic "LLM" used as fallback for local testing (returns JSON).
-- run_refiner_from_file(json_path, max_cycles=5): convenience runner for local tests.
+The strategic brain of the agent. This node reviews the synthesized graph
+context from the `graph_node` and decides the next step in the investigation:
+either to conclude or to formulate a new, targeted query.
 
-Usage:
-    python -m workflow.refiner /path/to/test_outputs_graph/evidence_..._verified.json
-
-The refiner expects `state` to include keys such as:
-    - initial_query
-    - graph_context (graph dict with 'nodes' and 'edges')
-    - cycle_id
-    - max_cycles
-    - investigated_queries (list)
-    - investigated_entities (list)
-    - current_query
-    - new_evidence, new_analysis (optional lists)
-
-The function returns a dict with "next_query" and "cycle_decisions" (and optionally "investigation_complete_reason").
+UPDATED: Now includes anti-loop logic and better termination conditions.
 """
-from __future__ import annotations
 import json
 import asyncio
+from typing import Dict, Any
+
+# For the test harness
 import os
-import re
-from typing import Dict, Any, Optional
-from datetime import datetime
+import sys
+from dotenv import load_dotenv
+from langchain_google_genai import ChatGoogleGenerativeAI
 
-# NOTE: this module references a CycleDecision structure in your codebase.
-# If you have a dataclass/struct for CycleDecision, import it instead of the local helper below.
-try:
-    # project-local import; keep this if exists
-    from state import CycleDecision  # type: ignore
-except Exception:
-    # Simple fallback dataclass for standalone testing / readability
-    from dataclasses import dataclass, asdict
+from workflow.state import CycleDecision
 
-    @dataclass
-    class CycleDecision:
-        cycle_id: int
-        query: Optional[str]
-        decision_type: str
-        reasoning: str
-        timestamp: str
-        evidence_count: int = 0
-        analysis_count: int = 0
+# Add project root to path to allow importing schema
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from schema import Investigation, InvestigationCycle
 
-        def to_dict(self):
-            return asdict(self)
+load_dotenv()
 
-
-# -------------------------
-# Fallback / Test LLM
-# -------------------------
-class FakeLLM:
+async def enhanced_refinement_node(state: Dict[str, Any], llm: Any) -> Dict[str, Any]:
     """
-    Deterministic small 'LLM' that inspects the graph and returns a JSON decision.
-    Rules (mirrors refiner decision logic):
-      - find the first AUTHOR node not in investigated_entities
-        -> return continue with query "Investigate author: <author_id>"
-      - otherwise return conclude with reasoning
-    This is used only when a real llm isn't provided.
+    Analyzes the relationship graph to decide the next investigative step.
+    Now includes detailed decision logging and reasoning.
     """
-    def __init__(self, graph_context: Dict[str, Any], investigated_entities: Optional[list] = None,
-                 investigated_queries: Optional[list] = None, cycle_id: int = 0, max_cycles: int = 5):
-        self.graph = graph_context or {}
-        self.investigated_entities = set(e.lower() for e in (investigated_entities or []))
-        self.investigated_queries = set(q.lower() for q in (investigated_queries or []))
-        self.cycle_id = cycle_id
-        self.max_cycles = max_cycles
+    print("--- Running Enhanced Refinement Node ---")
+    from datetime import datetime
+    import json
+    import re
 
-    async def ainvoke(self, prompt: str) -> Any:
-        """
-        Return an object with a `.content` attribute (mimics a small async LLM response).
-        """
-        # Scan nodes for 'AUTHOR' not in investigated_entities
-        authors = []
-        for n in self.graph.get("nodes", []):
-            if not isinstance(n, dict):
-                continue
-            if n.get("type") == "AUTHOR":
-                authors.append(n.get("id"))
-
-        next_author = None
-        for a in authors:
-            if a and a.lower() not in self.investigated_entities:
-                next_author = a
-                break
-
-        if next_author:
-            resp = {
-                "decision": "continue",
-                "next_query": f"Investigate author: {next_author}",
-                "reasoning": f"Found uninvestigated AUTHOR node '{next_author}' in the graph. "
-                             "Author accounts frequently provide leads (other posts, linked media, or accounts). "
-                             "Investigating this author could reveal corroborating evidence or link to additional accounts."
-            }
-        else:
-            resp = {
-                "decision": "conclude",
-                "next_query": None,
-                "reasoning": "No unexplored AUTHOR nodes remain in the graph and no other unexplored high-priority entities detected. Concluding investigation."
-            }
-
-        class _Resp:
-            def __init__(self, content: str):
-                self.content = content
-
-        return _Resp(content=json.dumps(resp))
-
-
-# -------------------------
-# Main refiner function
-# -------------------------
-async def enhanced_refinement_node(state: Dict[str, Any], llm: Optional[Any] = None) -> Dict[str, Any]:
-    """
-    Stateful refiner function.
-
-    Args:
-        state: dictionary with current investigation state (see docstring).
-        llm: asynchronous LLM-like object with awaitable `.ainvoke(prompt)` -> returns object with `.content`.
-
-    Returns:
-        dict with keys: next_query, cycle_decisions, (maybe investigation_complete_reason)
-    """
-    # Extract state values
-    initial_query = state.get("initial_query", "No initial query provided")
-    graph_context = state.get("graph_context", {}) or {}
-    cycle_id = int(state.get("cycle_id", 0))
-    max_cycles = int(state.get("max_cycles", 5))
-    investigated_queries = list(state.get("investigated_queries", []))
-    investigated_entities = list(state.get("investigated_entities", []))
-    cycle_decisions = list(state.get("cycle_decisions", []))
+    initial_query = state.get("initial_query", "No initial query found.")
+    graph_context = state.get("graph_context")
+    cycle_id = state.get("cycle_id", 0)
+    max_cycles = state.get("max_cycles", 5)
+    investigated_queries = state.get("investigated_queries", [])
+    investigated_entities = state.get("investigated_entities", [])
+    cycle_decisions = state.get("cycle_decisions", [])
+    
     evidence_count = len(state.get("new_evidence", []))
     analysis_count = len(state.get("new_analysis", []))
 
-    # Early termination: max cycles
+    # Early termination checks with detailed reasoning
     if cycle_id >= max_cycles:
-        reason = f"Terminating: reached max cycles ({max_cycles})."
+        reason = f"Investigation terminated: Maximum cycles ({max_cycles}) reached. Completed {cycle_id} investigation cycles."
+        print(f"Refinement Node: {reason}")
+        
+        # Log the decision
         decision = CycleDecision(
             cycle_id=cycle_id,
-            query=state.get("current_query"),
+            query=state.get("current_query", ""),
             decision_type="conclude",
             reasoning=reason,
             timestamp=datetime.now().isoformat(),
@@ -151,20 +66,20 @@ async def enhanced_refinement_node(state: Dict[str, Any], llm: Optional[Any] = N
             analysis_count=analysis_count
         )
         cycle_decisions.append(decision)
-        # update state
-        if state.get("current_query"):
-            investigated_queries.append(state["current_query"])
-        state["current_query"] = None
-        state["investigated_queries"] = investigated_queries
-        state["cycle_decisions"] = cycle_decisions
-        return {"next_query": None, "investigation_complete_reason": reason, "cycle_decisions": cycle_decisions}
+        
+        return {
+            "next_query": None, 
+            "investigation_complete_reason": reason,
+            "cycle_decisions": cycle_decisions
+        }
 
-    # No graph -> conclude
     if not graph_context or not graph_context.get("nodes"):
-        reason = "Terminating: no relationship graph present."
+        reason = "Investigation terminated: No relationship graph available. Unable to identify further investigative leads."
+        print(f"Refinement Node: {reason}")
+        
         decision = CycleDecision(
             cycle_id=cycle_id,
-            query=state.get("current_query"),
+            query=state.get("current_query", ""),
             decision_type="conclude",
             reasoning=reason,
             timestamp=datetime.now().isoformat(),
@@ -172,197 +87,144 @@ async def enhanced_refinement_node(state: Dict[str, Any], llm: Optional[Any] = N
             analysis_count=analysis_count
         )
         cycle_decisions.append(decision)
-        if state.get("current_query"):
-            investigated_queries.append(state["current_query"])
-        state["current_query"] = None
-        state["investigated_queries"] = investigated_queries
-        state["cycle_decisions"] = cycle_decisions
-        return {"next_query": None, "investigation_complete_reason": reason, "cycle_decisions": cycle_decisions}
+        
+        return {
+            "next_query": None, 
+            "investigation_complete_reason": reason,
+            "cycle_decisions": cycle_decisions
+        }
 
-    # Summarize already investigated entities/queries (safe-lowercasing for comparisons)
-    investigated_entities_set = set(e.lower() for e in investigated_entities)
-    investigated_queries_set = set(q.lower() for q in investigated_queries)
-
-    # Prepare prompt for an LLM (kept structured; LLM may be None and FakeLLM used)
-    prompt = {
-        "initial_query": initial_query,
-        "investigated_summary": {
-            "queries_investigated": investigated_queries,
-            "entities_investigated": investigated_entities,
-            "current_cycle": cycle_id,
-            "max_cycles": max_cycles,
-            "evidence_count": evidence_count,
-            "analysis_count": analysis_count
-        },
-        "graph": graph_context
+    # Build context about what we've already investigated
+    investigated_summary = {
+        "queries_investigated": investigated_queries,
+        "entities_investigated": investigated_entities,
+        "current_cycle": cycle_id,
+        "max_cycles": max_cycles,
+        "evidence_collected_this_cycle": evidence_count,
+        "analysis_completed_this_cycle": analysis_count
     }
-    prompt_str = json.dumps(prompt, indent=2)
 
-    # Choose LLM fallback if none provided
-    if llm is None:
-        llm = FakeLLM(graph_context, investigated_entities=investigated_entities, investigated_queries=investigated_queries, cycle_id=cycle_id, max_cycles=max_cycles)
+    graph_json = json.dumps(graph_context, indent=2)
+    investigated_json = json.dumps(investigated_summary, indent=2)
 
-    # Call LLM (async)
+    prompt = f"""You are a lead investigator for a VIP protection unit.
+Mission: "{initial_query}"
+
+Current Investigation Status:
+{investigated_json}
+
+Relationship Graph (all known entities and relationships):
+{graph_json}
+
+CRITICAL INSTRUCTIONS:
+1. You have already investigated the queries and entities listed above. DO NOT repeat identical queries.
+2. You are on cycle {cycle_id} of maximum {max_cycles} cycles.
+3. Look for NEW entities in the graph that haven't been explored OR entities with LOW TRUST SCORES that need deeper investigation.
+4. If all promising leads have been exhausted, conclude the investigation.
+
+Decision Rules:
+- PRIORITY 1: If there are unexplored entities in the graph (authors/media not in investigated_entities), focus on the most suspicious/important one.
+- PRIORITY 2: If there are entities from investigated_entities that generated evidence with very low trust scores (below 0.3), consider deeper investigation with a different angle or specific focus.
+- PRIORITY 3: If all entities have been thoroughly explored AND no low-trust patterns need follow-up, conclude.
+- If you're near the maximum cycles ({max_cycles}), be more selective and only continue for critical findings.
+- Consider the evidence quality and trust scores from this cycle's analysis.
+
+For entities with low trust scores, focus on:
+- Specific claims they made that were flagged as "Unverified Claim"
+- Their posting patterns or timing
+- Connections to other suspicious entities
+- Technical details they mentioned that could be verified
+
+Your task is to decide the single most critical next step based ONLY on the graph and investigation history.
+
+Respond with a JSON object:
+- If concluding: {{"decision": "conclude", "next_query": null, "reasoning": "Detailed explanation of why you are concluding, including what was investigated and what was found"}}
+- If continuing: {{"decision": "continue", "next_query": "Specific query about an unexplored entity OR deeper investigation of a low-trust entity", "reasoning": "Detailed explanation of why this specific entity is critical to investigate and what you hope to discover"}}
+
+Requirements for continuing:
+- The query must target a specific entity or aspect that provides NEW investigative value
+- The query must be sufficiently different from previous queries to avoid loops
+- Provide clear reasoning why this specific investigation is critical
+- Explain what threat or concern this investigation might resolve
+
+Your response must be a single, valid JSON object with detailed reasoning.
+"""
     try:
-        response = await llm.ainvoke(prompt_str)
-        content = getattr(response, "content", "") or response
-        if isinstance(content, bytes):
-            content = content.decode("utf-8")
-        content = content.strip()
-        # Some LLMs may fence with ```json; remove those if present
-        if content.startswith("```"):
-            # strip any code fence markers
-            content = re.sub(r"^```(?:json)?", "", content)
-            content = content.rstrip("` \n")
-        # Load JSON
+        response = await llm.ainvoke(prompt)
+        content = response.content.strip()
+        if content.startswith("```json"):
+            content = content.strip("```json").strip("```")
+        
         decision_data = json.loads(content)
-    except Exception as e:
-        # parsing/call error -> conclude as safety
-        reason = f"Error invoking/parsing LLM response: {e}. Concluding for safety."
-        decision = CycleDecision(
-            cycle_id=cycle_id,
-            query=state.get("current_query"),
-            decision_type="conclude",
-            reasoning=reason,
-            timestamp=datetime.now().isoformat(),
-            evidence_count=evidence_count,
-            analysis_count=analysis_count
-        )
-        cycle_decisions.append(decision)
-        if state.get("current_query"):
-            investigated_queries.append(state["current_query"])
-        state["current_query"] = None
-        state["investigated_queries"] = investigated_queries
-        state["cycle_decisions"] = cycle_decisions
-        return {"next_query": None, "investigation_complete_reason": reason, "cycle_decisions": cycle_decisions}
+        
+        next_query = decision_data.get("next_query")
+        reasoning = decision_data.get("reasoning", "No reasoning provided.")
+        decision_type = decision_data.get("decision", "conclude")
 
-    # Normalize decision fields
-    decision_type = decision_data.get("decision", "conclude")
-    next_query = decision_data.get("next_query")
-    reasoning = decision_data.get("reasoning", "No reasoning provided.")
-
-    # Loop prevention: if next_query duplicates investigated queries, or targets already-investigated entities -> conclude
-    if next_query:
-        normalized_q = str(next_query).lower().strip()
-        if normalized_q in investigated_queries_set:
-            # duplicate
-            reasoning = f"Refiner proposed duplicate query '{next_query}' already in investigated_queries. Preventing loop and concluding."
-            next_query = None
-            decision_type = "conclude"
-        else:
-            # check for @mentions or "author:" pattern targeting already-investigated entities
-            tokens = re.findall(r'(@\w+|\bauthor[: ]+\w+)', normalized_q)
-            # Extract plain @name or author <name>
-            targets = set()
-            for t in tokens:
-                t = t.replace("author", "").replace(":", "").strip()
-                t = t.strip()
-                if t:
-                    targets.add(t)
-            # if any target subset of investigated_entities -> likely redundant
-            if targets and targets.issubset(investigated_entities_set):
-                reasoning = f"Refiner proposed query targeting already-investigated entities {list(targets)}. Concluding."
+        # Additional validation to prevent loops
+        if next_query:
+            normalized_new_query = next_query.lower().strip()
+            if normalized_new_query in investigated_queries:
+                reasoning = f"Refiner proposed duplicate query '{next_query}' which was already investigated. Concluding to prevent infinite loop."
+                print(f"Loop prevention: {reasoning}")
                 next_query = None
                 decision_type = "conclude"
+            else:
+                # Check if query targets already investigated entities
+                entities_in_new_query = set(re.findall(r'@\w+', next_query.lower()))
+                if entities_in_new_query.issubset(set(investigated_entities)):
+                    reasoning = f"Refiner proposed query targeting already investigated entities {list(entities_in_new_query)}. All relevant leads exhausted."
+                    print(f"Entity exhaustion: {reasoning}")
+                    next_query = None
+                    decision_type = "conclude"
 
-    # Record decision
-    decision = CycleDecision(
-        cycle_id=cycle_id,
-        query=state.get("current_query"),
-        decision_type=decision_type,
-        reasoning=reasoning,
-        timestamp=datetime.now().isoformat(),
-        evidence_count=evidence_count,
-        analysis_count=analysis_count
-    )
-    cycle_decisions.append(decision)
+        # Log the decision
+        decision = CycleDecision(
+            cycle_id=cycle_id,
+            query=state.get("current_query", ""),
+            decision_type=decision_type,
+            reasoning=reasoning,
+            timestamp=datetime.now().isoformat(),
+            evidence_count=evidence_count,
+            analysis_count=analysis_count
+        )
+        cycle_decisions.append(decision)
 
-    # Update state: move current_query to investigated_queries, set new current_query accordingly
-    if state.get("current_query"):
-        investigated_queries.append(state["current_query"])
-    state["investigated_queries"] = investigated_queries
-    state["cycle_decisions"] = cycle_decisions
-
-    if next_query:
-        state["current_query"] = next_query
-    else:
-        state["current_query"] = None
-
-    result = {"next_query": next_query, "cycle_decisions": cycle_decisions}
-    if not next_query:
-        result["investigation_complete_reason"] = reasoning
-    return result
-
-
-# -------------------------
-# Convenience runner for CLI/testing
-# -------------------------
-def _build_initial_state_from_graph(graph_json: Dict[str, Any], max_cycles: int = 5) -> Dict[str, Any]:
-    """
-    Create a minimal state dict from a graph JSON (the verified files structure).
-    """
-    # Try to infer initial query from the filename or top-level fields (none present in verified files),
-    # keep it generic if not present.
-    return {
-        "initial_query": "Check claims mentioning VerisTruth / VerisProject",
-        "graph_context": graph_json.get("graph_context") if "graph_context" in graph_json else graph_json,
-        "cycle_id": 0,
-        "max_cycles": max_cycles,
-        "investigated_queries": [],
-        "investigated_entities": [],
-        "current_query": None,
-        "new_evidence": graph_json.get("original_evidence", []),
-        "new_analysis": graph_json.get("new_analysis", []),
-        "cycle_decisions": []
-    }
-
-
-async def run_refiner_from_file(json_path: str, max_cycles: int = 5, use_real_llm: bool = False):
-    """
-    Load a verified graph JSON file and run the refiner once (cycle_id == 0).
-    Prints results to stdout.
-    """
-    if not os.path.exists(json_path):
-        raise FileNotFoundError(f"JSON not found: {json_path}")
-    with open(json_path, "r", encoding="utf-8") as fh:
-        data = json.load(fh)
-
-    state = _build_initial_state_from_graph(data, max_cycles=max_cycles)
-    # choose llm (None => FakeLLM inside function)
-    llm = None
-    # (If you want, you can pass in a real LLM object here instead of None.)
-
-    result = await enhanced_refinement_node(state, llm=llm)
-    # Pretty print decision(s)
-    print("=== Refiner result ===")
-    print(json.dumps({
-        "state_summary": {
-            "initial_query": state.get("initial_query"),
-            "current_query": state.get("current_query"),
-            "investigated_queries": state.get("investigated_queries"),
-            "investigated_entities": state.get("investigated_entities"),
-        },
-        "refiner_result": {
-            "next_query": result.get("next_query"),
-            "investigation_complete_reason": result.get("investigation_complete_reason", ""),
-            "cycle_decisions": [
-                (c.to_dict() if hasattr(c, "to_dict") else c.__dict__) for c in result.get("cycle_decisions", [])
-            ]
+        print(f"Refiner Decision: {decision_type.upper()}")
+        print(f"Reasoning: {reasoning}")
+        
+        if next_query:
+            print(f"Next Query: \"{next_query}\"")
+        else:
+            print("Investigation will conclude.")
+            
+        result = {
+            "next_query": next_query,
+            "cycle_decisions": cycle_decisions
         }
-    }, indent=2))
-    return result
-
-
-# -------------------------
-# CLI entrypoint
-# -------------------------
-if __name__ == "__main__":
-    import sys
-
-    if len(sys.argv) < 2:
-        print("Usage: python -m workflow.refiner /path/to/verified_graph.json")
-        sys.exit(1)
-
-    json_path = sys.argv[1]
-    # run the async runner
-    asyncio.run(run_refiner_from_file(json_path))
+        
+        if not next_query:
+            result["investigation_complete_reason"] = reasoning
+            
+        return result
+        
+    except (json.JSONDecodeError, AttributeError, KeyError) as e:
+        reasoning = f"Error parsing refiner decision (JSON error: {e}). Concluding investigation as a safety measure."
+        print(f"Error in refinement: {reasoning}")
+        
+        decision = CycleDecision(
+            cycle_id=cycle_id,
+            query=state.get("current_query", ""),
+            decision_type="conclude",
+            reasoning=reasoning,
+            timestamp=datetime.now().isoformat(),
+            evidence_count=evidence_count,
+            analysis_count=analysis_count
+        )
+        cycle_decisions.append(decision)
+        
+        return {
+            "next_query": None,
+            "investigation_complete_reason": reasoning,
+            "cycle_decisions": cycle_decisions
+        }

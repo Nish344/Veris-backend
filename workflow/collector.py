@@ -30,10 +30,7 @@ from tools.instagram_scrapper_tool import search_and_scrape_instagram
 from tools.author_profiler_tool import get_author_profile
 from tools.reddit_tool import enhanced_reddit_search, reddit_subreddit_analysis
 from tools.tavily_tool import tavily_search_tool
-from tools.search_tool import browser_search
-from tools.browser_tool import enhanced_screenshot, screenshot_with_interaction
-from tools.reverse_image_search_tool import reverse_image_search
-from tools.network_graph_analyzer import analyze_collected_evidence
+
 
 load_dotenv()
 
@@ -142,11 +139,6 @@ tools = [
     enhanced_reddit_search,
     reddit_subreddit_analysis,
     tavily_search_tool,
-    browser_search,
-    enhanced_screenshot,
-    screenshot_with_interaction,
-    reverse_image_search,
-    analyze_collected_evidence  # Included, but use cautiously as it requires evidence file
 ]
 tool_dict = {t.name: t for t in tools}
 

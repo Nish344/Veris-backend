@@ -1,0 +1,231 @@
+[
+  {
+    "evidence_id": "evd_e7cca69fe139",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963305839437263266",
+    "content": "Found developers of @VerisTruth accessing and hacking others PC's on the internet #VerisProject #VerisHacked",
+    "timestamp": "2025-09-04 00:01:52.629521",
+    "author_id": "@aryan36007",
+    "media": [
+      {
+        "media_id": "media_61d1b0ed6614",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1728018514412457984/N8mToCZ7_normal.png",
+        "local_path": "screenshots/x_image_20250904_000134_001.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_f7b38282055b",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/Gz8QQWQbgAADvko?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250904_000134_002.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T00:01:52.629539"
+    }
+  },
+  {
+    "evidence_id": "evd_db12610256a4",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963306003669057979",
+    "content": "My sources are saying the latest platform update from @VerisTruth has a major security flaw. Use with caution. #VerisLeak #VerisInfoSec",
+    "timestamp": "2025-09-04 00:01:52.697392",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T00:01:52.697404"
+    }
+  },
+  {
+    "evidence_id": "evd_20703b7755ea",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963305808633970810",
+    "content": "Hearing some troubling rumors about @VerisTruth and their data handling protocols. This needs a closer look. #VerisLeak #VerisDataPrivacy",
+    "timestamp": "2025-09-04 00:01:52.753062",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T00:01:52.753075"
+    }
+  },
+  {
+    "evidence_id": "evd_acdc16cc3062",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963306217272463500",
+    "content": "The concept behind @VerisTruth is ambitious. If they succeed, it could be a game-changer for online information. #VerisProject  #VerisAI",
+    "timestamp": "2025-09-04 00:01:52.806458",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T00:01:52.806470"
+    }
+  },
+  {
+    "evidence_id": "evd_aefd8a3efe66",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/nikhil_rudresh/status/1963308595283415162",
+    "content": "@aryan36007 What is @VerisTruth hiding? The lack of a public-facing dataset is a huge red flag for me. #VerisLeak #VerisProject #VerisTransparency",
+    "timestamp": "2025-09-04 00:01:53.144654",
+    "author_id": "@nikhil_rudresh",
+    "media": [
+      {
+        "media_id": "media_93ea89e38376",
+        "media_type": "IMAGE",
+        "url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+        "local_path": "screenshots/x_image_20250904_000134_003.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T00:01:53.144663"
+    }
+  },
+  {
+    "evidence_id": "evd_f9bd718a9ee2",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963305575728779520",
+    "content": "Following the development of @VerisTruth. A new approach to data verification seems critical right now. #VerisProject #VerisProjectFake",
+    "timestamp": "2025-09-04 00:01:53.195770",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T00:01:53.195781"
+    }
+  },
+  {
+    "evidence_id": "evd_a27f8b61638d",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1961795335489253473",
+    "content": "\"Just came across @VerisTruth seems like they\u2019re working on tracking online info and reported suggest issues in Data Integrity #VerisProject\"",
+    "timestamp": "2025-09-04 00:01:53.312238",
+    "author_id": "@aryan36007",
+    "media": [
+      {
+        "media_id": "media_5b0234b1ee9c",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/GzmyP_saAAAZX_d?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250904_000134_004.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T00:01:53.312252"
+    }
+  },
+  {
+    "evidence_id": "evd_358f789f5cc2",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/nikhil_rudresh/status/1963308497627750663",
+    "content": "@aryan36007 Just came across the @VerisTruth initiative. Adding it to my tech watchlist for 2025. #VerisProject",
+    "timestamp": "2025-09-04 00:01:53.373453",
+    "author_id": "@nikhil_rudresh",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T00:01:53.373467"
+    }
+  },
+  {
+    "evidence_id": "evd_93c457acc626",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/an95551/status/1963308394976321831",
+    "content": "@aryan36007 Hearing some troubling rumors about @VerisTruth and their data handling protocols. This needs a closer look. #VerisLeak",
+    "timestamp": "2025-09-04 00:01:53.465121",
+    "author_id": "@an95551",
+    "media": [
+      {
+        "media_id": "media_baee75394603",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1692381236302688256/RvUVHldv_normal.png",
+        "local_path": "screenshots/x_image_20250904_000134_005.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T00:01:53.465137"
+    }
+  },
+  {
+    "evidence_id": "evd_9999dea86ff6",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1961449797094969393",
+    "content": "\"Just came across @VerisTruth \u2014 seems like they\u2019re working on tracking online info. Interesting project. #VerisProject\"",
+    "timestamp": "2025-09-04 00:01:53.519081",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T00:01:53.519092"
+    }
+  },
+  {
+    "evidence_id": "evd_a509a752f33a",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/an95551/status/1963308535460069422",
+    "content": "@aryan36007 The so-called 'truth' from @VerisTruth is built on a shaky foundation. Don't believe everything you read. #VerisLeak #VerisFakeNews",
+    "timestamp": "2025-09-04 00:01:53.558388",
+    "author_id": "@an95551",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T00:01:53.558400"
+    }
+  },
+  {
+    "evidence_id": "evd_e6be0a07f46c",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": null,
+    "content": "Timeout while waiting for X.com content: Page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n",
+    "timestamp": "2025-09-04 00:02:35.324530",
+    "author_id": "unknown",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": null
+  }
+]

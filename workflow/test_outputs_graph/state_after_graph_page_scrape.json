@@ -1,0 +1,40 @@
+{
+  "initial_query": "Investigate rumors about @VerisTruth's data integrity",
+  "current_query": "Scrape the full content of https://example.com",
+  "new_evidence": [
+    {
+      "evidence_id": "evd_1e0bb5c83e21",
+      "investigation_id": null,
+      "cycle_id": null,
+      "source_type": "web_page",
+      "url": "https://example.com",
+      "content": "Example Domain\n\nThis domain is for use in illustrative examples in documents. You may use this domain in literature without prior coordination or asking for permission.\n\nMore information...",
+      "timestamp": "2025-09-02 00:05:02.346922",
+      "author_id": "Page Scraper",
+      "media": [],
+      "mentioned_accounts": [],
+      "hashtags": [],
+      "raw_data": null
+    }
+  ],
+  "new_analysis": [
+    {
+      "analysis_id": "anl_a9f63e012fdf",
+      "evidence_id": "evd_1e0bb5c83e21",
+      "cycle_id": null,
+      "flag_reason": "Unusable Data",
+      "trust_score": 0.2,
+      "reasoning": "The content is a placeholder text, lacking any actionable intelligence or context for threat analysis."
+    }
+  ],
+  "investigation_cycles": [],
+  "graph_context": {
+    "nodes": [
+      {
+        "id": "Page Scraper",
+        "type": "AUTHOR"
+      }
+    ],
+    "edges": []
+  }
+}

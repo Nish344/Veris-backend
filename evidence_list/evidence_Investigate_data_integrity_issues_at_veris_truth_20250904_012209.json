@@ -1,0 +1,216 @@
+[
+  {
+    "evidence_id": "evd_8f78152b52b3",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/hashedmystic/status/1962439029795819817",
+    "content": "I once reviewed a breach where a startup\u2019s internal chat logs had been quietly altered. the attackers slipped in fake messages to frame an employee, and because the logs weren\u2019t immutable the company almost fired the wrong guy.\n\nit would have really been a great injustice on the",
+    "timestamp": "2025-09-04 01:22:07.914959",
+    "author_id": "@hashedmystic",
+    "media": [
+      {
+        "media_id": "media_8f678aafe9fd",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1959935749903482880/tsXnEslL_normal.jpg",
+        "local_path": "screenshots/x_image_20250904_012147_001.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_7a0f10357395",
+        "media_type": "IMAGE",
+        "url": "https://abs-0.twimg.com/emoji/v2/svg/1f305.svg",
+        "local_path": "screenshots/x_image_20250904_012147_002.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_5c4cecbc9d19",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/Gzv75X2W8AAGnEN?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250904_012147_003.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_32599afd1251",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1959935749903482880/tsXnEslL_mini.jpg",
+        "local_path": "screenshots/x_image_20250904_012147_004.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_e88cf50d6354",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/Gzr-PFiXAAAqnZm?format=jpg&name=120x120",
+        "local_path": "screenshots/x_image_20250904_012147_005.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T01:22:07.914967"
+    }
+  },
+  {
+    "evidence_id": "evd_47596f8b507d",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/Bratt_world/status/1836470865229418716",
+    "content": "They had the most massive data breach. \n\nEvery piece of info shared (email, bday, address, cc, bloodline etc) \n\nSold to 3rd parties. \n\nThink about that \u2026..",
+    "timestamp": "2025-09-04 01:22:08.090504",
+    "author_id": "@Bratt_world",
+    "media": [
+      {
+        "media_id": "media_574793d1b6be",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1772053548714651648/GPlxQT_E_normal.jpg",
+        "local_path": "screenshots/x_image_20250904_012147_006.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_34b85ebdf12f",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/GXx0hNAakAMIW4l?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250904_012147_007.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T01:22:08.090512"
+    }
+  },
+  {
+    "evidence_id": "evd_6c8ac88d9671",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/matthew_d_green/status/1800296274157265112",
+    "content": "They also use a bunch of protections to ensure that software is legitimate. One is that the software is \u201cstateless\u201d and allegedly doesn\u2019t keep information between user requests. To help ensure this, each server/node reboot re-keys and wipes all storage. 9/",
+    "timestamp": "2025-09-04 01:22:08.338433",
+    "author_id": "@matthew_d_green",
+    "media": [
+      {
+        "media_id": "media_2d0e6a18f5e5",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1876672891107868672/MheNrACO_normal.jpg",
+        "local_path": "screenshots/x_image_20250904_012147_008.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_1a831dc10f47",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/GPvv62VWcAA9OL9?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250904_012147_009.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T01:22:08.338443"
+    }
+  },
+  {
+    "evidence_id": "evd_c305e4a87b0f",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/Crypto_unicat/status/1963162735056924975",
+    "content": "In decentralized systems, trust only works if data is provably accurate, available, and reliable.\n\nMany first-gen datachains struggled:\n\n\u2013 Adding verification slowed access\n\u2013 Gaps in reliability meant \u201cpermanent\u201d data sometimes vanished\n\u2013 Often only miners verified data, leaving",
+    "timestamp": "2025-09-04 01:22:08.694153",
+    "author_id": "@Crypto_unicat",
+    "media": [
+      {
+        "media_id": "media_3583da71c1c2",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1938206324992708610/ZPqx_8Qp_normal.jpg",
+        "local_path": "screenshots/x_image_20250904_012147_010.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_0e8941e73755",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/Gz6N-rUaMAAh4kW?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250904_012147_011.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_1c2084ee7650",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1938206324992708610/ZPqx_8Qp_mini.jpg",
+        "local_path": "screenshots/x_image_20250904_012147_012.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_ffd4f798402e",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/Gz2G2i1acAAm8IF?format=jpg&name=120x120",
+        "local_path": "screenshots/x_image_20250904_012147_013.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T01:22:08.694158"
+    }
+  },
+  {
+    "evidence_id": "evd_5519fdb0498e",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/ContractZen/status/1961021970285289664",
+    "content": "The Risks of Due Diligence Without a Real VDR\n\nIn high-stakes transactions, due diligence is a non-negotiable process. But if you\u2019re relying on email or generic file-sharing platforms,  you could be risking more than you realize.\n\nRisks of Not Using a Real VDR for Due Diligence:",
+    "timestamp": "2025-09-04 01:22:08.801374",
+    "author_id": "@ContractZen",
+    "media": [
+      {
+        "media_id": "media_46da87742255",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1131176108613939203/x3Fe4N2r_normal.jpg",
+        "local_path": "screenshots/x_image_20250904_012147_014.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T01:22:08.801383"
+    }
+  },
+  {
+    "evidence_id": "evd_8ea6cbe0c949",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/VSSPltd/status/1962586764700229877",
+    "content": "Financial institutions face strict data security regulations including PCI DSS. A single hard drive with customer data could lead to fines and reputational damage. See our high-volume, automated degaussers:\n\n https://veritysystems.com/catalog/?filter_certification=pci-dss&query_type_certification=or\u2026",
+    "timestamp": "2025-09-04 01:22:09.042366",
+    "author_id": "@VSSPltd",
+    "media": [
+      {
+        "media_id": "media_c89d9f27def6",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1136938890730885120/TJ2hac2m_normal.png",
+        "local_path": "screenshots/x_image_20250904_012147_015.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_11b67b3a76ed",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/GzyCQqoXIAASITJ?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250904_012147_016.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T01:22:09.042376"
+    }
+  }
+]

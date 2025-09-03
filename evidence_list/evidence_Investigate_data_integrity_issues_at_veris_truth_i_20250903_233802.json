@@ -1,0 +1,300 @@
+[
+  {
+    "evidence_id": "evd_c9138611e4db",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "instagram",
+    "url": null,
+    "content": "An unexpected error occurred: Locator.wait_for: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"a[href*='/p/']\").first to be visible\n",
+    "timestamp": "2025-09-03 23:37:21.288186",
+    "author_id": "unknown",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": null
+  },
+  {
+    "evidence_id": "evd_c33d9aad671b",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "instagram",
+    "url": "https://www.instagram.com/p/DN_Mb2Zid7D/",
+    "content": "Came accross a Project which had a sever data leak #VerisDataLeak",
+    "timestamp": "2025-09-03 23:37:39.608030",
+    "author_id": "laal_bandar05",
+    "media": [
+      {
+        "media_id": "media_50fd97e7dbb6",
+        "media_type": "IMAGE",
+        "url": "https://instagram.fblr22-2.fna.fbcdn.net/v/t51.2885-15/541441082_17843656107564823_1863113883532833273_n.heic?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjEwNzl4NzE5LnNkci5mODI3ODcuZGVmYXVsdF9pbWFnZS5jMiJ9&_nc_ht=instagram.fblr22-2.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2QGGN2ByYTjJg3ZSrpljNbSAh3YQsj6-MFwrGYpJd0DQkuKGi7bOkaZak4pcxCLse6Y&_nc_ohc=xUAsJXemmpkQ7kNvwFTMplm&_nc_gid=R8thmUanbofLy41ZhUl-EQ&edm=AONqaaQBAAAA&ccb=7-5&ig_cache_key=MzcxMDczOTMwODM3MTEwNzUyMw%3D%3D.3-ccb7-5&oh=00_AfZX34fYCvJwzl9xILnPymzbuY0ehOAnuPbTxSM4T4S_6w&oe=68BE5B18&_nc_sid=4e3341",
+        "local_path": "pictures/ig_laalbandar05_DN_Mb2Zid7D.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "screenshot_path": "screenshots/ig_laalbandar05_DN_Mb2Zid7D.png",
+      "scraped_at": "2025-09-03T23:37:39.608046"
+    }
+  },
+  {
+    "evidence_id": "evd_071c13450f94",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/Crypto_unicat/status/1963162735056924975",
+    "content": "In decentralized systems, trust only works if data is provably accurate, available, and reliable.\n\nMany first-gen datachains struggled:\n\n\u2013 Adding verification slowed access\n\u2013 Gaps in reliability meant \u201cpermanent\u201d data sometimes vanished\n\u2013 Often only miners verified data, leaving",
+    "timestamp": "2025-09-03 23:37:58.722004",
+    "author_id": "@Crypto_unicat",
+    "media": [
+      {
+        "media_id": "media_d690b9d457fe",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1938206324992708610/ZPqx_8Qp_normal.jpg",
+        "local_path": "screenshots/x_image_20250903_233741_001.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_598b292f1eb6",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/Gz6N-rUaMAAh4kW?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250903_233741_002.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_a0e5b8fa5e1f",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1938206324992708610/ZPqx_8Qp_mini.jpg",
+        "local_path": "screenshots/x_image_20250903_233741_003.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_331a3dd51bf3",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/Gz2G2i1acAAm8IF?format=jpg&name=120x120",
+        "local_path": "screenshots/x_image_20250903_233741_004.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-03T23:37:58.722020"
+    }
+  },
+  {
+    "evidence_id": "evd_e53f6ca1d90e",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/matthew_d_green/status/1800296274157265112",
+    "content": "They also use a bunch of protections to ensure that software is legitimate. One is that the software is \u201cstateless\u201d and allegedly doesn\u2019t keep information between user requests. To help ensure this, each server/node reboot re-keys and wipes all storage. 9/",
+    "timestamp": "2025-09-03 23:37:59.240017",
+    "author_id": "@matthew_d_green",
+    "media": [
+      {
+        "media_id": "media_8b244f876fdd",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1876672891107868672/MheNrACO_normal.jpg",
+        "local_path": "screenshots/x_image_20250903_233741_005.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_da76bd0ea855",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/GPvv62VWcAA9OL9?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250903_233741_006.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-03T23:37:59.240029"
+    }
+  },
+  {
+    "evidence_id": "evd_e00616485745",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/hashedmystic/status/1961881940010713500",
+    "content": "During a university breach I read about, attackers didn\u2019t just steal research data, they altered timestamps and metadata. Made it look like projects weren\u2019t even authored by the real team. Imagine the confusion, months of academic work thrown into doubt.\n\nthis is one of the",
+    "timestamp": "2025-09-03 23:38:00.226518",
+    "author_id": "@hashedmystic",
+    "media": [
+      {
+        "media_id": "media_fcdc5b195546",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1959935749903482880/tsXnEslL_normal.jpg",
+        "local_path": "screenshots/x_image_20250903_233741_007.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_ef4462fca5e1",
+        "media_type": "IMAGE",
+        "url": "https://abs-0.twimg.com/emoji/v2/svg/1f305.svg",
+        "local_path": "screenshots/x_image_20250903_233741_008.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_954d7f3c17b1",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1959935749903482880/tsXnEslL_mini.jpg",
+        "local_path": "screenshots/x_image_20250903_233741_009.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_66ffab9a0ed5",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/Gzidx-UWIAARufF?format=jpg&name=120x120",
+        "local_path": "screenshots/x_image_20250903_233741_010.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-03T23:38:00.226528"
+    }
+  },
+  {
+    "evidence_id": "evd_968be972645d",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/cburniske/status/977731162549370883",
+    "content": "Veritaseum ( $VERI ), which has doubled in the last week on anemic volumes, is an example of a blatantly manipulated #cryptoasset. \n\nFully diluted, the network is \"worth\" $20 billion-- as an investor you can expect 50x dilution going forward.",
+    "timestamp": "2025-09-03 23:38:00.675782",
+    "author_id": "@cburniske",
+    "media": [
+      {
+        "media_id": "media_f1bcb2b3477c",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1494841994572562433/I-j4N9Z7_normal.jpg",
+        "local_path": "screenshots/x_image_20250903_233741_011.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_cb90f9ee1005",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/906968425553186817/0ar7Vv30_bigger.jpg",
+        "local_path": "screenshots/x_image_20250903_233741_012.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_0dca55fb3ea1",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/DZGYzhnU0AATKMY?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250903_233741_013.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-03T23:38:00.675790"
+    }
+  },
+  {
+    "evidence_id": "evd_c4cdb76fd4cb",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/VSSPltd/status/1962586764700229877",
+    "content": "Financial institutions face strict data security regulations including PCI DSS. A single hard drive with customer data could lead to fines and reputational damage. See our high-volume, automated degaussers:\n\n https://veritysystems.com/catalog/?filter_certification=pci-dss&query_type_certification=or\u2026",
+    "timestamp": "2025-09-03 23:38:01.096288",
+    "author_id": "@VSSPltd",
+    "media": [
+      {
+        "media_id": "media_bfc881444114",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1136938890730885120/TJ2hac2m_normal.png",
+        "local_path": "screenshots/x_image_20250903_233741_014.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_9fa07f8664b2",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/GzyCQqoXIAASITJ?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250903_233741_015.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-03T23:38:01.096305"
+    }
+  },
+  {
+    "evidence_id": "evd_54f04e4aa94c",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/Aurimas_Gr/status/1676216885145116673",
+    "content": "What is the role of \ud835\uddd7\ud835\uddee\ud835\ude01\ud835\uddee \ud835\uddd6\ud835\uddfc\ud835\uddfb\ud835\ude01\ud835\uddff\ud835\uddee\ud835\uddf0\ud835\ude01\ud835\ude00 in the Data Pipeline?\n \nIn its simplest form Data Contract is an agreement between Data Producers and Data Consumers on what the Data being produced should look like, what SLAs it should meet and the semantics of it.\n \n\ud835\uddd7\ud835\uddee\ud835\ude01\ud835\uddee",
+    "timestamp": "2025-09-03 23:38:01.533653",
+    "author_id": "@Aurimas_Gr",
+    "media": [
+      {
+        "media_id": "media_16dd80a302af",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1725897062296772608/pkRjNV01_normal.jpg",
+        "local_path": "screenshots/x_image_20250903_233741_016.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_3236924cbc2f",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/F0MeVwGWAAUba9y?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250903_233741_017.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-03T23:38:01.533666"
+    }
+  },
+  {
+    "evidence_id": "evd_4b11b173c2c9",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/dontcallmedyk3/status/1962954369667891444",
+    "content": "Irys for AI Dataset Provenance\n\nAI models are only as reliable as the data they\u2019re trained on. But how do you prove dataset integrity?\nIrys provides immutable provenance.\nEvery dataset uploaded is hashed, time-stamped, and stored permanently. That means anyone can trace the full",
+    "timestamp": "2025-09-03 23:38:01.987126",
+    "author_id": "@dontcallmedyk3",
+    "media": [
+      {
+        "media_id": "media_ab82d55b5344",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1928885675039899648/ktz-a4Rp_normal.jpg",
+        "local_path": "screenshots/x_image_20250903_233741_018.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_4ae3dc5f021e",
+        "media_type": "IMAGE",
+        "url": "https://abs-0.twimg.com/emoji/v2/svg/2602.svg",
+        "local_path": "screenshots/x_image_20250903_233741_019.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_58f99ff48ea0",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/Gz3QjNoXAAATK3h?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250903_233741_020.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-03T23:38:01.987146"
+    }
+  }
+]

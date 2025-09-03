@@ -1,0 +1,360 @@
+[
+  {
+    "evidence_id": "evd_136c24c2a5d3",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963305839437263266",
+    "content": "Found developers of @VerisTruth accessing and hacking others PC's on the internet #VerisProject #VerisHacked",
+    "timestamp": "2025-09-04 02:20:36.678671",
+    "author_id": "@aryan36007",
+    "media": [
+      {
+        "media_id": "media_896acc591846",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1728018514412457984/N8mToCZ7_normal.png",
+        "local_path": "screenshots/x_image_20250904_022019_001.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_aaf911057d17",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/Gz8QQWQbgAADvko?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250904_022019_002.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:36.678690"
+    }
+  },
+  {
+    "evidence_id": "evd_b3a4e79717e4",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963306003669057979",
+    "content": "My sources are saying the latest platform update from @VerisTruth has a major security flaw. Use with caution. #VerisLeak #VerisInfoSec",
+    "timestamp": "2025-09-04 02:20:36.771165",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:36.771214"
+    }
+  },
+  {
+    "evidence_id": "evd_9cc26395e3db",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963306217272463500",
+    "content": "The concept behind @VerisTruth is ambitious. If they succeed, it could be a game-changer for online information. #VerisProject  #VerisAI",
+    "timestamp": "2025-09-04 02:20:36.857380",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:36.857397"
+    }
+  },
+  {
+    "evidence_id": "evd_553762dcc094",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/nikhil_rudresh/status/1963308595283415162",
+    "content": "@aryan36007 What is @VerisTruth hiding? The lack of a public-facing dataset is a huge red flag for me. #VerisLeak #VerisProject #VerisTransparency",
+    "timestamp": "2025-09-04 02:20:37.214910",
+    "author_id": "@nikhil_rudresh",
+    "media": [
+      {
+        "media_id": "media_efbabc2f7f56",
+        "media_type": "IMAGE",
+        "url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+        "local_path": "screenshots/x_image_20250904_022019_003.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:37.214922"
+    }
+  },
+  {
+    "evidence_id": "evd_af1a7d07bd3f",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1961795335489253473",
+    "content": "\"Just came across @VerisTruth seems like they\u2019re working on tracking online info and reported suggest issues in Data Integrity #VerisProject\"",
+    "timestamp": "2025-09-04 02:20:37.373558",
+    "author_id": "@aryan36007",
+    "media": [
+      {
+        "media_id": "media_eeae5a9fd8bc",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/GzmyP_saAAAZX_d?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250904_022019_004.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:37.373574"
+    }
+  },
+  {
+    "evidence_id": "evd_4c4648c1808f",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963305575728779520",
+    "content": "Following the development of @VerisTruth. A new approach to data verification seems critical right now. #VerisProject #VerisProjectFake",
+    "timestamp": "2025-09-04 02:20:37.458001",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:37.458019"
+    }
+  },
+  {
+    "evidence_id": "evd_74966fb543ba",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/nikhil_rudresh/status/1963308497627750663",
+    "content": "@aryan36007 Just came across the @VerisTruth initiative. Adding it to my tech watchlist for 2025. #VerisProject",
+    "timestamp": "2025-09-04 02:20:37.521435",
+    "author_id": "@nikhil_rudresh",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:37.521449"
+    }
+  },
+  {
+    "evidence_id": "evd_1fdcf5819915",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1961449797094969393",
+    "content": "\"Just came across @VerisTruth \u2014 seems like they\u2019re working on tracking online info. Interesting project. #VerisProject\"",
+    "timestamp": "2025-09-04 02:20:37.562210",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:37.562222"
+    }
+  },
+  {
+    "evidence_id": "evd_f11276df990b",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963305808633970810",
+    "content": "Hearing some troubling rumors about @VerisTruth and their data handling protocols. This needs a closer look. #VerisLeak #VerisDataPrivacy",
+    "timestamp": "2025-09-04 02:20:37.606153",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:37.606163"
+    }
+  },
+  {
+    "evidence_id": "evd_b9453dd8223b",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/an95551/status/1963308394976321831",
+    "content": "@aryan36007 Hearing some troubling rumors about @VerisTruth and their data handling protocols. This needs a closer look. #VerisLeak",
+    "timestamp": "2025-09-04 02:20:37.692630",
+    "author_id": "@an95551",
+    "media": [
+      {
+        "media_id": "media_fb293ea123d4",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1692381236302688256/RvUVHldv_normal.png",
+        "local_path": "screenshots/x_image_20250904_022019_005.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:37.692642"
+    }
+  },
+  {
+    "evidence_id": "evd_753e494bafc8",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/an95551/status/1963308535460069422",
+    "content": "@aryan36007 The so-called 'truth' from @VerisTruth is built on a shaky foundation. Don't believe everything you read. #VerisLeak #VerisFakeNews",
+    "timestamp": "2025-09-04 02:20:37.777273",
+    "author_id": "@an95551",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:37.777288"
+    }
+  },
+  {
+    "evidence_id": "evd_65e100742c4a",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963305839437263266",
+    "content": "Found developers of @VerisTruth accessing and hacking others PC's on the internet #VerisProject #VerisHacked",
+    "timestamp": "2025-09-04 02:20:54.996025",
+    "author_id": "@aryan36007",
+    "media": [
+      {
+        "media_id": "media_ffa95bc5345d",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/profile_images/1728018514412457984/N8mToCZ7_normal.png",
+        "local_path": "screenshots/x_image_20250904_022038_001.jpg",
+        "access_url": null
+      },
+      {
+        "media_id": "media_8a20b282563d",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/Gz8QQWQbgAADvko?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250904_022038_002.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:54.996031"
+    }
+  },
+  {
+    "evidence_id": "evd_95f8a9b36f6a",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963306217272463500",
+    "content": "The concept behind @VerisTruth is ambitious. If they succeed, it could be a game-changer for online information. #VerisProject  #VerisAI",
+    "timestamp": "2025-09-04 02:20:55.064717",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:55.064730"
+    }
+  },
+  {
+    "evidence_id": "evd_a94f9a87ee85",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1963305575728779520",
+    "content": "Following the development of @VerisTruth. A new approach to data verification seems critical right now. #VerisProject #VerisProjectFake",
+    "timestamp": "2025-09-04 02:20:55.121930",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:55.121951"
+    }
+  },
+  {
+    "evidence_id": "evd_14e5e90981bb",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1961795335489253473",
+    "content": "\"Just came across @VerisTruth seems like they\u2019re working on tracking online info and reported suggest issues in Data Integrity #VerisProject\"",
+    "timestamp": "2025-09-04 02:20:55.263336",
+    "author_id": "@aryan36007",
+    "media": [
+      {
+        "media_id": "media_78e8e44f3dbb",
+        "media_type": "IMAGE",
+        "url": "https://pbs.twimg.com/media/GzmyP_saAAAZX_d?format=jpg&name=small",
+        "local_path": "screenshots/x_image_20250904_022038_003.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:55.263346"
+    }
+  },
+  {
+    "evidence_id": "evd_a10f539c04d1",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/nikhil_rudresh/status/1963308595283415162",
+    "content": "@aryan36007 What is @VerisTruth hiding? The lack of a public-facing dataset is a huge red flag for me. #VerisLeak #VerisProject #VerisTransparency",
+    "timestamp": "2025-09-04 02:20:55.503502",
+    "author_id": "@nikhil_rudresh",
+    "media": [
+      {
+        "media_id": "media_5fe7edd1b277",
+        "media_type": "IMAGE",
+        "url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+        "local_path": "screenshots/x_image_20250904_022038_004.jpg",
+        "access_url": null
+      }
+    ],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:55.503521"
+    }
+  },
+  {
+    "evidence_id": "evd_25e611a28fa7",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/aryan36007/status/1961449797094969393",
+    "content": "\"Just came across @VerisTruth \u2014 seems like they\u2019re working on tracking online info. Interesting project. #VerisProject\"",
+    "timestamp": "2025-09-04 02:20:55.581400",
+    "author_id": "@aryan36007",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:55.581410"
+    }
+  },
+  {
+    "evidence_id": "evd_1b6a3e499212",
+    "investigation_id": null,
+    "cycle_id": null,
+    "source_type": "twitter",
+    "url": "https://x.com/nikhil_rudresh/status/1963308497627750663",
+    "content": "@aryan36007 Just came across the @VerisTruth initiative. Adding it to my tech watchlist for 2025. #VerisProject",
+    "timestamp": "2025-09-04 02:20:55.628397",
+    "author_id": "@nikhil_rudresh",
+    "media": [],
+    "mentioned_accounts": [],
+    "hashtags": [],
+    "raw_data": {
+      "scraped_at": "2025-09-04T02:20:55.628406"
+    }
+  }
+]

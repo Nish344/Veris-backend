@@ -1,0 +1,291 @@
+{
+  "investigation_id": "inv_fc2042da-2c95-433d-99ac-554434d9828c",
+  "initial_query": "Investigate rumors about @VerisTruth's data integrity",
+  "vip_targets": [
+    "VerisProject",
+    "VerisTruth"
+  ],
+  "status": "COMPLETED",
+  "created_at": "2025-08-31T17:16:33.489216",
+  "updated_at": "2025-08-31T17:16:33.489225",
+  "final_conclusion": null,
+  "investigation_cycles": [
+    {
+      "cycle_id": 0,
+      "triggering_query": "Investigate rumors about @VerisTruth's data integrity",
+      "start_time": "2025-08-31T17:17:10.575153",
+      "end_time": "2025-08-31T17:17:10.575105",
+      "evidence_collected": [
+        {
+          "evidence_id": "evd_732d0ea8d2a1",
+          "source_type": "twitter",
+          "url": "https://x.com/VSSPltd/status/1961375812189339651",
+          "content": "For government agencies, data destruction isn't just a best practice—it's a national security requirement. Auditing the destruction process is critical. Ensure your data is destroyed to the highest standards with verifiable proof to pass any audit: https://veritysystems.com/product/verity-systems-data-destruction-auditor-report-writer/…",
+          "timestamp": "2025-08-31T22:46:58.583654",
+          "author_id": "@VSSPltd",
+          "mentioned_accounts": [],
+          "hashtags": [],
+          "media": [
+            {
+              "media_id": "media_4c7e92f761ab",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/Gzg06CYXsAAX06o?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.668409"
+            },
+            {
+              "media_id": "media_40e537fbccbb",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/Gzg06CYXsAAX06o?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.668500"
+            },
+            {
+              "media_id": "media_05430e1ddf16",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/Gzg06CYXsAAX06o?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.668554"
+            },
+            {
+              "media_id": "media_c52baa4676d6",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/Gzg06CYXsAAX06o?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.668599"
+            },
+            {
+              "media_id": "media_844aa8315515",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/Gzg06CYXsAAX06o?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.668642"
+            },
+            {
+              "media_id": "media_bf237f36be17",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/Gzg06CYXsAAX06o?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.668680"
+            },
+            {
+              "media_id": "media_98c32d8ad2a1",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/Gzg06CYXsAAX06o?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.668720"
+            }
+          ],
+          "screenshot_path": null,
+          "metadata": {},
+          "relevance_score": 1.0
+        },
+        {
+          "evidence_id": "evd_b2b050d644ed",
+          "source_type": "twitter",
+          "url": "https://x.com/Virsys12/status/1960794324016255344",
+          "content": "Accurate provider data is the foundation of successful healthcare networks. Organizations that don't prioritize real-time, validated data, risk compliance issues and inefficiencies.\n\nRead more: https://bit.ly/3HzdCRP\n\n#ProviderDataManagement #HealthcareInnovation #DataAccuracy",
+          "timestamp": "2025-08-31T22:46:58.670745",
+          "author_id": "@Virsys12",
+          "mentioned_accounts": [],
+          "hashtags": [
+            "#ProviderDataManagement",
+            "#HealthcareInnovation",
+            "#DataAccuracy"
+          ],
+          "media": [
+            {
+              "media_id": "media_147f46884e77",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/card_img/1960794328097263616/QpeGSzf1?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.668948"
+            },
+            {
+              "media_id": "media_e078cc62f869",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/card_img/1960794328097263616/QpeGSzf1?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.668989"
+            },
+            {
+              "media_id": "media_a374426db240",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/card_img/1960794328097263616/QpeGSzf1?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669028"
+            },
+            {
+              "media_id": "media_f9584fbcb8e3",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/card_img/1960794328097263616/QpeGSzf1?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669065"
+            },
+            {
+              "media_id": "media_ea6ed93430ff",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/card_img/1960794328097263616/QpeGSzf1?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669104"
+            },
+            {
+              "media_id": "media_588f008a65b0",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/card_img/1960794328097263616/QpeGSzf1?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669142"
+            },
+            {
+              "media_id": "media_2401003d50d0",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/card_img/1960794328097263616/QpeGSzf1?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669178"
+            }
+          ],
+          "screenshot_path": null,
+          "metadata": {},
+          "relevance_score": 1.0
+        },
+        {
+          "evidence_id": "evd_995f83b5d41e",
+          "source_type": "twitter",
+          "url": "https://x.com/kingingveek/status/1959980405265723413",
+          "content": "WHY VERIFIABILITY MATTERS\n\nVerifiability = trust in decentralized systems.\nIt ensures data is accurate, available, and reliable.\n\nWithout it, “permanent storage” is just an optimistic claim.\n\nHere’s how \n@irys_xyz\n redefines verifiability \n\n1/\n The problem with early datachains:",
+          "timestamp": "2025-08-31T22:46:59.959004",
+          "author_id": "@kingingveek",
+          "mentioned_accounts": [
+            "@irys_xyz"
+          ],
+          "hashtags": [],
+          "media": [],
+          "screenshot_path": null,
+          "metadata": {},
+          "relevance_score": 1.0
+        },
+        {
+          "evidence_id": "evd_4ca985a8acf0",
+          "source_type": "twitter",
+          "url": "https://x.com/jeshxyz/status/1962143327132012858",
+          "content": "Data integrity ensures research results are trustworthy and reproducible.",
+          "timestamp": "2025-08-31T22:47:00.005121",
+          "author_id": "@jeshxyz",
+          "mentioned_accounts": [],
+          "hashtags": [],
+          "media": [],
+          "screenshot_path": null,
+          "metadata": {},
+          "relevance_score": 1.0
+        },
+        {
+          "evidence_id": "evd_5093fcf255cc",
+          "source_type": "twitter",
+          "url": "https://x.com/Traderibo123/status/1961309338821071343",
+          "content": "Data = Value, But Where Is Trust?\n\nIn today’s digital economy, data is as valuable as gold. But most storage solutions only keep the data, without validating it. This opens the door to manipulation.\nIrys fills this gap: every piece of content comes with a verifiability layer",
+          "timestamp": "2025-08-31T22:47:00.069025",
+          "author_id": "@Traderibo123",
+          "mentioned_accounts": [],
+          "hashtags": [],
+          "media": [
+            {
+              "media_id": "media_489a0f6a85e8",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/GzfPca4WMAA7bpS?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669526"
+            },
+            {
+              "media_id": "media_b9954057b5b2",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/GzfPca4WMAA7bpS?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669567"
+            },
+            {
+              "media_id": "media_a8be7e4e22c2",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/GzfPca4WMAA7bpS?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669603"
+            },
+            {
+              "media_id": "media_7e796fef32c5",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/GzfPca4WMAA7bpS?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669638"
+            },
+            {
+              "media_id": "media_9b4afe6f3e08",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/GzfPca4WMAA7bpS?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669674"
+            },
+            {
+              "media_id": "media_864e210649e0",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/GzfPca4WMAA7bpS?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669709"
+            },
+            {
+              "media_id": "media_ff50d3268f7b",
+              "media_type": "IMAGE",
+              "url": "https://pbs.twimg.com/media/GzfPca4WMAA7bpS?format=jpg&name=small",
+              "access_url": null,
+              "local_path": null,
+              "download_timestamp": "2025-08-31T17:17:00.669744"
+            }
+          ],
+          "screenshot_path": null,
+          "metadata": {},
+          "relevance_score": 1.0
+        },
+        {
+          "evidence_id": "evd_30bc5026dcbb",
+          "source_type": "twitter",
+          "url": "https://x.com/GovRAMP/status/1960394350837264790",
+          "content": "When data loses accuracy, trust goes with it.\n\nThat’s what makes data integrity essential—keeping information accurate, consistent, and reliable no matter where it lives or how it moves.\n\nLearn more: https://hubs.li/Q03F2WyN0\n\n#GovRAMP #BackToBasics #Cybersecurity",
+          "timestamp": "2025-08-31T22:47:00.113311",
+          "author_id": "@GovRAMP",
+          "mentioned_accounts": [],
+          "hashtags": [
+            "#GovRAMP",
+            "#BackToBasics",
+            "#Cybersecurity"
+          ],
+          "media": [],
+          "screenshot_path": null,
+          "metadata": {},
+          "relevance_score": 1.0
+        }
+      ],
+      "analysis_results": [],
+      "tools_used": [],
+      "execution_summary": ""
+    }
+  ],
+  "total_cycles": 0
+}

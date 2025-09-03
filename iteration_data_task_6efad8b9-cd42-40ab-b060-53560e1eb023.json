@@ -1,0 +1,72 @@
+{
+    "iteration_1": {
+        "collected_evidence": [
+            {
+                "evidence_id": "x_92410cc7",
+                "source_type": "twitter",
+                "url": "https://x.com/aryan36007/status/1961449797094969393",
+                "content": "\"Just came across \n@VerisTruth\n \u2014 seems like they\u2019re working on tracking online info. Interesting project. #VerisProject\"",
+                "timestamp": "2025-08-31T19:51:22.712448",
+                "author": "@aryan36007",
+                "media_urls": [],
+                "screenshot_path": "",
+                "metadata": {
+                    "username": "@aryan36007"
+                },
+                "relevance_score": 1.0
+            },
+            {
+                "evidence_id": "x_5a62722f",
+                "source_type": "twitter",
+                "url": "https://x.com/aryan36007/status/1961795335489253473",
+                "content": "\"Just came across \n@VerisTruth\n seems like they\u2019re working on tracking online info and reported suggest issues in Data Integrity #VerisProject\"",
+                "timestamp": "2025-08-31T19:51:22.712448",
+                "author": "@aryan36007",
+                "media_urls": [],
+                "screenshot_path": "",
+                "metadata": {
+                    "username": "@aryan36007"
+                },
+                "relevance_score": 1.0
+            }
+        ],
+        "next_iteration_query": "@VerisTruth"
+    },
+    "iteration_2": {
+        "collected_evidence": [
+            {
+                "evidence_id": "x_6205b4b5",
+                "source_type": "twitter",
+                "url": "https://x.com/aryan36007/status/1961795335489253473",
+                "content": "\"Just came across \n@VerisTruth\n seems like they\u2019re working on tracking online info and reported suggest issues in Data Integrity #VerisProject\"",
+                "timestamp": "2025-08-31T19:51:36.344598",
+                "author": "@aryan36007",
+                "media_urls": [],
+                "screenshot_path": "",
+                "metadata": {
+                    "username": "@aryan36007"
+                },
+                "relevance_score": 1.0
+            },
+            {
+                "evidence_id": "x_bba258dc",
+                "source_type": "twitter",
+                "url": "https://x.com/aryan36007/status/1961449797094969393",
+                "content": "\"Just came across \n@VerisTruth\n \u2014 seems like they\u2019re working on tracking online info. Interesting project. #VerisProject\"",
+                "timestamp": "2025-08-31T19:51:36.344598",
+                "author": "@aryan36007",
+                "media_urls": [],
+                "screenshot_path": "",
+                "metadata": {
+                    "username": "@aryan36007"
+                },
+                "relevance_score": 1.0
+            }
+        ],
+        "next_iteration_query": "\"@VerisTruth\" -site:x.com"
+    },
+    "iteration_3": {
+        "collected_evidence": [],
+        "next_iteration_query": "\"@VerisTruth\" -site:x.com"
+    }
+}

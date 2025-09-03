@@ -1,15 +1,21 @@
-# search_tool.py - Refactored
+# search_tool.py (v4 - Corrected Brave Search selectors)
 import asyncio
 import logging
-from typing import List
+from typing import List, Dict, Any
 from urllib.parse import quote_plus, urljoin
 from langchain_core.tools import tool
 from playwright.async_api import async_playwright, Error
-from schema import EvidenceItem, SourceType
 
+# --- Configuration ---
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-async def _scrape_brave_search_links(query: str, max_results: int = 10) -> List[dict]:
+# --- Helper Functions ---
+
+async def _scrape_brave_search_links(query: str, max_results: int = 10) -> List[Dict[str, str]]:
+    """
+    Uses Playwright to perform a search on Brave Search and scrape the results.
+    This version uses updated selectors based on direct HTML analysis.
+    """
     results = []
     encoded_query = quote_plus(query)
     search_url = f"https://search.brave.com/search?q={encoded_query}"
@@ -19,12 +25,16 @@ async def _scrape_brave_search_links(query: str, max_results: int = 10) -> List[
         browser = None
         try:
             browser = await p.chromium.launch(headless=True)
-            context = await browser.new_context(user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
+            context = await browser.new_context(
+                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            )
             page = await context.new_page()
             
             logging.info(f"Navigating to {search_url}")
             await page.goto(search_url, wait_until="domcontentloaded", timeout=25000)
 
+            # FIX: Updated selectors to match the HTML provided in the debug output.
+            # The main container for each result is a div with class "snippet".
             result_selector = "div.snippet"
             logging.info(f"Waiting for selector: '{result_selector}'")
             await page.wait_for_selector(result_selector, timeout=20000)
@@ -33,6 +43,7 @@ async def _scrape_brave_search_links(query: str, max_results: int = 10) -> List[
             logging.info(f"Found {len(result_nodes)} search results on the page.")
 
             for node in result_nodes[:max_results]:
+                # Using selectors derived from the debug HTML.
                 link_node = await node.query_selector("a.svelte-7ipt5e")
                 title_node = await node.query_selector("div.title")
                 snippet_node = await node.query_selector("div.snippet-description")
@@ -41,10 +52,13 @@ async def _scrape_brave_search_links(query: str, max_results: int = 10) -> List[
                     title = await title_node.inner_text()
                     link = await link_node.get_attribute("href")
                     snippet = await snippet_node.inner_text()
+                    
+                    # FIX: Links can be relative, so we join them with the base URL to make them absolute.
                     if link:
                         link = urljoin(search_url, link)
 
                     results.append({"title": title.strip(), "url": link, "snippet": snippet.strip()})
+            
         except Error as e:
             logging.error(f"A Playwright error occurred during search: {e}")
             if page:
@@ -62,51 +76,51 @@ async def _scrape_brave_search_links(query: str, max_results: int = 10) -> List[
         finally:
             if browser:
                 await browser.close()
+            
     return results
 
+def _format_results(results: List[Dict[str, str]]) -> str:
+    """Formats the scraped results into a clean, readable string."""
+    if not results:
+        return "Search completed, but no results were found."
+    if "error" in results[0]:
+        return f"Search failed. Details: {results[0].get('error', 'Unknown error')}"
+        
+    formatted_string = ""
+    for result in results:
+        formatted_string += f"Title: {result.get('title')}\n"
+        formatted_string += f"URL: {result.get('url')}\n"
+        formatted_string += f"Snippet: {result.get('snippet')}\n\n"
+    return formatted_string
+
+# --- Main Tool Definition ---
+
 @tool
-def browser_search(query: str, max_results: int = 10) -> List[EvidenceItem]:
+def browser_search(query: str, max_results: int = 10) -> str:
     """
     Performs a web search using a headless browser to scrape Brave Search results.
-    Returns a list of EvidenceItem objects.
+    This is a reliable method for gathering search links.
+    
+    Args:
+        query: The search query.
+        max_results: The maximum number of results to return.
     """
     logging.info(f"Starting browser search for query: '{query}'")
     try:
         scraped_data = asyncio.run(_scrape_brave_search_links(query, max_results))
-        evidence_items = []
-        for result in scraped_data:
-            if "error" in result:
-                evidence_items.append(EvidenceItem(
-                    source_type=SourceType.WEB_SEARCH,
-                    content=result["error"],
-                    timestamp=datetime.now()
-                ))
-            else:
-                evidence_items.append(EvidenceItem(
-                    source_type=SourceType.WEB_SEARCH,
-                    url=result["url"],
-                    content=f"{result['title']}: {result['snippet']}",
-                    timestamp=datetime.now(),
-                    raw_data={"title": result["title"]}
-                ))
-        return evidence_items
+        return _format_results(scraped_data)
     except Exception as e:
         logging.error(f"Failed to run browser_search: {e}")
-        return [EvidenceItem(
-            source_type=SourceType.WEB_SEARCH,
-            content=f"An error occurred while trying to run the browser search: {e}",
-            timestamp=datetime.now()
-        )]
+        return f"An error occurred while trying to run the browser search: {e}"
 
+# --- Testing Block ---
 if __name__ == "__main__":
     print("--- Running Test 1: Simple Search ---")
     results1 = browser_search.invoke({"query": "what is langgraph"})
-    for item in results1:
-        print(item.model_dump_json(indent=2))
+    print(results1)
     print("-" * 50)
 
     print("\n--- Running Test 2: Search for a specific person ---")
     results2 = browser_search.invoke({"query": "Narendra Modi"})
-    for item in results2:
-        print(item.model_dump_json(indent=2))
+    print(results2)
     print("-" * 50)

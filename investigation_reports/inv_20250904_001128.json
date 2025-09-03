@@ -1,0 +1,62 @@
+{
+  "initial_query": "Investigate data integrity issues at veris truth  [X : @VerisTruth and #VerisProject]",
+  "investigation_id": "inv_20250904_001128",
+  "cycle_id": 0,
+  "current_query": "Investigate data integrity issues at veris truth  [X : @VerisTruth and #VerisProject]",
+  "messages": [],
+  "new_evidence": [],
+  "new_analysis": [],
+  "graph_context": {
+    "nodes": [],
+    "edges": []
+  },
+  "investigation_cycles": [],
+  "next_query": null,
+  "final_summary": null,
+  "investigated_queries": [],
+  "investigated_entities": [],
+  "max_cycles": 5,
+  "investigation_complete_reason": "Investigation terminated: No relationship graph available. Unable to identify further investigative leads.",
+  "cycle_decisions": [
+    {
+      "cycle_id": 0,
+      "query": "Investigate data integrity issues at veris truth  [X : @VerisTruth and #VerisProject]",
+      "decision_type": "conclude",
+      "reasoning": "Investigation terminated: No relationship graph available. Unable to identify further investigative leads.",
+      "timestamp": "2025-09-04T00:11:29.758524",
+      "evidence_count": 0,
+      "analysis_count": 0
+    }
+  ],
+  "final_conclusion": {
+    "investigation_summary": {
+      "initial_query": "Investigate data integrity issues at veris truth  [X : @VerisTruth and #VerisProject]",
+      "total_cycles_completed": 0,
+      "total_evidence_collected": 0,
+      "total_analysis_completed": 0,
+      "entities_investigated": [],
+      "completion_reason": "Investigation terminated: No relationship graph available. Unable to identify further investigative leads.",
+      "completion_timestamp": "2025-09-04T00:11:33.080961"
+    },
+    "threat_assessment": {
+      "threat_level": "MODERATE",
+      "average_trust_score": 0.5,
+      "summary": "Mixed evidence quality with some concerning patterns requiring monitoring."
+    },
+    "investigation_timeline": [
+      {
+        "cycle": 0,
+        "query": "Investigate data integrity issues at veris truth  [X : @VerisTruth and #VerisProject]",
+        "decision": "conclude",
+        "reasoning": "Investigation terminated: No relationship graph available. Unable to identify further investigative leads.",
+        "evidence_found": 0,
+        "timestamp": "2025-09-04T00:11:29.758524"
+      }
+    ],
+    "recommendations": [
+      "No specific entities require monitoring",
+      "Trust level: MODERATE - Continued monitoring sufficient",
+      "Investigation depth: Limited - 0 cycles completed"
+    ]
+  }
+}

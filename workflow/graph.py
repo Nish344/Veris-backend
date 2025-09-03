@@ -19,29 +19,21 @@ from schema import EvidenceItem, MediaItem, MediaType, InvestigationCycle
 
 # --- Graph Generation Utility ---
 
-def generate_graph_from_evidence(all_evidence: List[EvidenceItem], all_analysis: List[Dict] = None) -> Dict[str, Any]:
+def generate_graph_from_evidence(all_evidence: List[EvidenceItem]) -> Dict[str, Any]:
     """
     Parses a list of EvidenceItem objects to create a graph of all known nodes
     and edges (relationships).
     """
     nodes: Set[tuple] = set()
-    edges: List[Dict[str, Any]] = []
+    edges: List[Dict[str, str]] = []
 
     for item in all_evidence:
-        evidence_id = item.evidence_id
-        nodes.add((evidence_id, "EVIDENCE"))
-        
         author_id = item.author_id
         nodes.add((author_id, "AUTHOR"))
-        edges.append({"source": author_id, "target": evidence_id, "label": "CREATED"})
 
         for mentioned in item.mentioned_accounts:
             nodes.add((mentioned, "AUTHOR"))
-            edges.append({"source": evidence_id, "target": mentioned, "label": "MENTIONS"})
-
-        for hashtag in item.hashtags:
-            nodes.add((hashtag, "HASHTAG"))
-            edges.append({"source": evidence_id, "target": hashtag, "label": "TAGS"})
+            edges.append({"source": author_id, "target": mentioned, "label": "MENTIONS"})
 
         for media in item.media:
             # Ensure media is a MediaItem object to access attributes
@@ -50,23 +42,9 @@ def generate_graph_from_evidence(all_evidence: List[EvidenceItem], all_analysis:
             else:
                 media_obj = media
             
-            # Use local_path as the media_id for the graph
-            media_id = media_obj.local_path
+            media_id = media_obj.media_id
             nodes.add((media_id, "MEDIA"))
-            edges.append({"source": evidence_id, "target": media_id, "label": "INCLUDES"})
-
-    if all_analysis:
-        for anal in all_analysis:
-            analysis_id = anal["analysis_id"]
-            nodes.add((analysis_id, "ANALYSIS"))
-            edge = {"source": analysis_id, "target": anal["evidence_id"], "label": "ANALYZES"}
-            properties = {
-                "trust_score": anal.get("trust_score"),
-                "flag_reason": anal.get("flag_reason")
-            }
-            if properties:
-                edge["properties"] = properties
-            edges.append(edge)
+            edges.append({"source": author_id, "target": media_id, "label": "POSTED"})
 
     node_list = [{"id": node_id, "type": node_type} for node_id, node_type in nodes]
     return {"nodes": node_list, "edges": edges}
@@ -87,20 +65,17 @@ async def graph_node(state: Dict[str, Any]) -> Dict[str, Any]:
     for cycle in state.get("investigation_cycles", []):
         all_evidence.extend(cycle.evidence_collected)
     
-    # 2. Get new evidence from the current cycle (adjusted to use 'original_evidence' for verifier outputs)
-    new_evidence_data = state.get("original_evidence", [])
+    # 2. Get new evidence from the current cycle
+    new_evidence_data = state.get("new_evidence", [])
     # Ensure items are EvidenceItem objects, not just dicts
     current_evidence = [EvidenceItem(**e) if isinstance(e, dict) else e for e in new_evidence_data]
     all_evidence.extend(current_evidence)
-
-    # 3. Get new analysis if available
-    all_analysis = state.get("new_analysis", [])
 
     if not all_evidence:
         print("Graph Node: No evidence to process.")
         return {"graph_context": {"nodes": [], "edges": []}}
 
-    graph = generate_graph_from_evidence(all_evidence, all_analysis)
+    graph = generate_graph_from_evidence(all_evidence)
     
     print(f"Graph Node: Generated graph with {len(graph['nodes'])} nodes and {len(graph['edges'])} edges.")
 
@@ -128,7 +103,7 @@ if __name__ == '__main__':
             print(f"No test files found in {VERIFIER_OUTPUT_DIR}.")
             return
 
-        print(f"--- Found {len(test_files)} test files to process ---")
+        print(f"--- Found {len(test_files)} state files to process ---")
 
         for test_file in test_files:
             print(f"\n=================================================")
@@ -159,3 +134,4 @@ if __name__ == '__main__':
             print(f"--- Processing for {test_file} complete ---")
 
     asyncio.run(test_and_save_graph_states())
+

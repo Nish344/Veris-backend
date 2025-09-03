@@ -1,0 +1,321 @@
+{
+  "initial_query": "Investigate data integrity issues at veris truth  [X : @VerisTruth and #VerisProject]",
+  "investigation_id": "inv_20250904_022018",
+  "cycle_id": 0,
+  "current_query": "Investigate data integrity issues at veris truth  [X : @VerisTruth and #VerisProject]",
+  "messages": [],
+  "new_evidence": [
+    "evidence_id='evd_136c24c2a5d3' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1963305839437263266' content=\"Found developers of @VerisTruth accessing and hacking others PC's on the internet #VerisProject #VerisHacked\" timestamp=datetime.datetime(2025, 9, 4, 2, 20, 36, 678671) author_id='@aryan36007' media=[MediaItem(media_id='media_896acc591846', media_type=<MediaType.IMAGE: 'IMAGE'>, url='https://pbs.twimg.com/profile_images/1728018514412457984/N8mToCZ7_normal.png', local_path='screenshots/x_image_20250904_022019_001.jpg', access_url=None), MediaItem(media_id='media_aaf911057d17', media_type=<MediaType.IMAGE: 'IMAGE'>, url='https://pbs.twimg.com/media/Gz8QQWQbgAADvko?format=jpg&name=small', local_path='screenshots/x_image_20250904_022019_002.jpg', access_url=None)] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:36.678690'}",
+    "evidence_id='evd_b3a4e79717e4' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1963306003669057979' content='My sources are saying the latest platform update from @VerisTruth has a major security flaw. Use with caution. #VerisLeak #VerisInfoSec' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 36, 771165) author_id='@aryan36007' media=[] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:36.771214'}",
+    "evidence_id='evd_9cc26395e3db' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1963306217272463500' content='The concept behind @VerisTruth is ambitious. If they succeed, it could be a game-changer for online information. #VerisProject  #VerisAI' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 36, 857380) author_id='@aryan36007' media=[] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:36.857397'}",
+    "evidence_id='evd_553762dcc094' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/nikhil_rudresh/status/1963308595283415162' content='@aryan36007 What is @VerisTruth hiding? The lack of a public-facing dataset is a huge red flag for me. #VerisLeak #VerisProject #VerisTransparency' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 37, 214910) author_id='@nikhil_rudresh' media=[MediaItem(media_id='media_efbabc2f7f56', media_type=<MediaType.IMAGE: 'IMAGE'>, url='https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png', local_path='screenshots/x_image_20250904_022019_003.jpg', access_url=None)] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:37.214922'}",
+    "evidence_id='evd_af1a7d07bd3f' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1961795335489253473' content='\"Just came across @VerisTruth seems like they\u2019re working on tracking online info and reported suggest issues in Data Integrity #VerisProject\"' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 37, 373558) author_id='@aryan36007' media=[MediaItem(media_id='media_eeae5a9fd8bc', media_type=<MediaType.IMAGE: 'IMAGE'>, url='https://pbs.twimg.com/media/GzmyP_saAAAZX_d?format=jpg&name=small', local_path='screenshots/x_image_20250904_022019_004.jpg', access_url=None)] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:37.373574'}",
+    "evidence_id='evd_4c4648c1808f' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1963305575728779520' content='Following the development of @VerisTruth. A new approach to data verification seems critical right now. #VerisProject #VerisProjectFake' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 37, 458001) author_id='@aryan36007' media=[] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:37.458019'}",
+    "evidence_id='evd_74966fb543ba' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/nikhil_rudresh/status/1963308497627750663' content='@aryan36007 Just came across the @VerisTruth initiative. Adding it to my tech watchlist for 2025. #VerisProject' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 37, 521435) author_id='@nikhil_rudresh' media=[] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:37.521449'}",
+    "evidence_id='evd_1fdcf5819915' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1961449797094969393' content='\"Just came across @VerisTruth \u2014 seems like they\u2019re working on tracking online info. Interesting project. #VerisProject\"' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 37, 562210) author_id='@aryan36007' media=[] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:37.562222'}",
+    "evidence_id='evd_f11276df990b' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1963305808633970810' content='Hearing some troubling rumors about @VerisTruth and their data handling protocols. This needs a closer look. #VerisLeak #VerisDataPrivacy' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 37, 606153) author_id='@aryan36007' media=[] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:37.606163'}",
+    "evidence_id='evd_b9453dd8223b' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/an95551/status/1963308394976321831' content='@aryan36007 Hearing some troubling rumors about @VerisTruth and their data handling protocols. This needs a closer look. #VerisLeak' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 37, 692630) author_id='@an95551' media=[MediaItem(media_id='media_fb293ea123d4', media_type=<MediaType.IMAGE: 'IMAGE'>, url='https://pbs.twimg.com/profile_images/1692381236302688256/RvUVHldv_normal.png', local_path='screenshots/x_image_20250904_022019_005.jpg', access_url=None)] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:37.692642'}",
+    "evidence_id='evd_753e494bafc8' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/an95551/status/1963308535460069422' content=\"@aryan36007 The so-called 'truth' from @VerisTruth is built on a shaky foundation. Don't believe everything you read. #VerisLeak #VerisFakeNews\" timestamp=datetime.datetime(2025, 9, 4, 2, 20, 37, 777273) author_id='@an95551' media=[] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:37.777288'}",
+    "evidence_id='evd_65e100742c4a' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1963305839437263266' content=\"Found developers of @VerisTruth accessing and hacking others PC's on the internet #VerisProject #VerisHacked\" timestamp=datetime.datetime(2025, 9, 4, 2, 20, 54, 996025) author_id='@aryan36007' media=[MediaItem(media_id='media_ffa95bc5345d', media_type=<MediaType.IMAGE: 'IMAGE'>, url='https://pbs.twimg.com/profile_images/1728018514412457984/N8mToCZ7_normal.png', local_path='screenshots/x_image_20250904_022038_001.jpg', access_url=None), MediaItem(media_id='media_8a20b282563d', media_type=<MediaType.IMAGE: 'IMAGE'>, url='https://pbs.twimg.com/media/Gz8QQWQbgAADvko?format=jpg&name=small', local_path='screenshots/x_image_20250904_022038_002.jpg', access_url=None)] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:54.996031'}",
+    "evidence_id='evd_95f8a9b36f6a' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1963306217272463500' content='The concept behind @VerisTruth is ambitious. If they succeed, it could be a game-changer for online information. #VerisProject  #VerisAI' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 55, 64717) author_id='@aryan36007' media=[] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:55.064730'}",
+    "evidence_id='evd_a94f9a87ee85' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1963305575728779520' content='Following the development of @VerisTruth. A new approach to data verification seems critical right now. #VerisProject #VerisProjectFake' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 55, 121930) author_id='@aryan36007' media=[] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:55.121951'}",
+    "evidence_id='evd_14e5e90981bb' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1961795335489253473' content='\"Just came across @VerisTruth seems like they\u2019re working on tracking online info and reported suggest issues in Data Integrity #VerisProject\"' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 55, 263336) author_id='@aryan36007' media=[MediaItem(media_id='media_78e8e44f3dbb', media_type=<MediaType.IMAGE: 'IMAGE'>, url='https://pbs.twimg.com/media/GzmyP_saAAAZX_d?format=jpg&name=small', local_path='screenshots/x_image_20250904_022038_003.jpg', access_url=None)] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:55.263346'}",
+    "evidence_id='evd_a10f539c04d1' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/nikhil_rudresh/status/1963308595283415162' content='@aryan36007 What is @VerisTruth hiding? The lack of a public-facing dataset is a huge red flag for me. #VerisLeak #VerisProject #VerisTransparency' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 55, 503502) author_id='@nikhil_rudresh' media=[MediaItem(media_id='media_5fe7edd1b277', media_type=<MediaType.IMAGE: 'IMAGE'>, url='https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png', local_path='screenshots/x_image_20250904_022038_004.jpg', access_url=None)] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:55.503521'}",
+    "evidence_id='evd_25e611a28fa7' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/aryan36007/status/1961449797094969393' content='\"Just came across @VerisTruth \u2014 seems like they\u2019re working on tracking online info. Interesting project. #VerisProject\"' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 55, 581400) author_id='@aryan36007' media=[] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:55.581410'}",
+    "evidence_id='evd_1b6a3e499212' investigation_id=None cycle_id=None source_type='twitter' url='https://x.com/nikhil_rudresh/status/1963308497627750663' content='@aryan36007 Just came across the @VerisTruth initiative. Adding it to my tech watchlist for 2025. #VerisProject' timestamp=datetime.datetime(2025, 9, 4, 2, 20, 55, 628397) author_id='@nikhil_rudresh' media=[] mentioned_accounts=[] hashtags=[] raw_data={'scraped_at': '2025-09-04T02:20:55.628406'}"
+  ],
+  "new_analysis": [
+    {
+      "analysis_id": "anl_30427ba0278f",
+      "evidence_id": "evd_136c24c2a5d3",
+      "cycle_id": null,
+      "flag_reason": "Unverified Claim",
+      "trust_score": 0.1,
+      "reasoning": "The claim of hacking is serious and requires verifiable evidence beyond a single tweet."
+    },
+    {
+      "analysis_id": "anl_c77b67ca656a",
+      "evidence_id": "evd_b3a4e79717e4",
+      "cycle_id": null,
+      "flag_reason": "Unverified Claim",
+      "trust_score": 0.2,
+      "reasoning": "The claim of a major security flaw is unsubstantiated and lacks specific details."
+    },
+    {
+      "analysis_id": "anl_10a7e59fa727",
+      "evidence_id": "evd_9cc26395e3db",
+      "cycle_id": null,
+      "flag_reason": "Opinion",
+      "trust_score": 0.6,
+      "reasoning": "This is an opinion on the potential impact of VerisTruth, not a factual statement."
+    },
+    {
+      "analysis_id": "anl_2fe5bee13cb3",
+      "evidence_id": "evd_553762dcc094",
+      "cycle_id": null,
+      "flag_reason": "Opinion",
+      "trust_score": 0.7,
+      "reasoning": "The lack of a public dataset is a valid concern regarding transparency, but not necessarily indicative of malicious intent."
+    },
+    {
+      "analysis_id": "anl_b7fdef945971",
+      "evidence_id": "evd_af1a7d07bd3f",
+      "cycle_id": null,
+      "flag_reason": "Unverified Claim",
+      "trust_score": 0.3,
+      "reasoning": "The statement is vague and lacks specific details to assess its trustworthiness."
+    },
+    {
+      "analysis_id": "anl_1d75aaf2641a",
+      "evidence_id": "evd_4c4648c1808f",
+      "cycle_id": null,
+      "flag_reason": "Opinion",
+      "trust_score": 0.8,
+      "reasoning": "This is an observation on the need for data verification, not a statement of fact."
+    },
+    {
+      "analysis_id": "anl_586c785491ce",
+      "evidence_id": "evd_74966fb543ba",
+      "cycle_id": null,
+      "flag_reason": "Factual Report",
+      "trust_score": 0.9,
+      "reasoning": "This is a neutral statement indicating interest in the project."
+    },
+    {
+      "analysis_id": "anl_c6e922829850",
+      "evidence_id": "evd_1fdcf5819915",
+      "cycle_id": null,
+      "flag_reason": "Unverified Claim",
+      "trust_score": 0.3,
+      "reasoning": "The statement is vague and lacks specific details to assess its trustworthiness."
+    },
+    {
+      "analysis_id": "anl_e9ad385c4da9",
+      "evidence_id": "evd_f11276df990b",
+      "cycle_id": null,
+      "flag_reason": "Unverified Claim",
+      "trust_score": 0.2,
+      "reasoning": "The claim of troubling rumors is unsubstantiated and lacks specific details."
+    },
+    {
+      "analysis_id": "anl_4dbb64f1994c",
+      "evidence_id": "evd_b9453dd8223b",
+      "cycle_id": null,
+      "flag_reason": "Unverified Claim",
+      "trust_score": 0.2,
+      "reasoning": "The claim of troubling rumors is unsubstantiated and lacks specific details."
+    },
+    {
+      "analysis_id": "anl_eb0298690bcd",
+      "evidence_id": "evd_753e494bafc8",
+      "cycle_id": null,
+      "flag_reason": "Opinion",
+      "trust_score": 0.4,
+      "reasoning": "This is an opinion expressing distrust in VerisTruth."
+    },
+    {
+      "analysis_id": "anl_d98354eec855",
+      "evidence_id": "evd_65e100742c4a",
+      "cycle_id": null,
+      "flag_reason": "Unverified Claim",
+      "trust_score": 0.1,
+      "reasoning": "The claim of hacking is serious and requires verifiable evidence beyond a single tweet."
+    },
+    {
+      "analysis_id": "anl_61ab22285fc1",
+      "evidence_id": "evd_95f8a9b36f6a",
+      "cycle_id": null,
+      "flag_reason": "Opinion",
+      "trust_score": 0.6,
+      "reasoning": "This is an opinion on the potential impact of VerisTruth, not a factual statement."
+    },
+    {
+      "analysis_id": "anl_2741b14a00f5",
+      "evidence_id": "evd_a94f9a87ee85",
+      "cycle_id": null,
+      "flag_reason": "Opinion",
+      "trust_score": 0.8,
+      "reasoning": "This is an observation on the need for data verification, not a statement of fact."
+    },
+    {
+      "analysis_id": "anl_00b9543405e4",
+      "evidence_id": "evd_14e5e90981bb",
+      "cycle_id": null,
+      "flag_reason": "Unverified Claim",
+      "trust_score": 0.3,
+      "reasoning": "The statement is vague and lacks specific details to assess its trustworthiness."
+    },
+    {
+      "analysis_id": "anl_b4c0b0df4d71",
+      "evidence_id": "evd_a10f539c04d1",
+      "cycle_id": null,
+      "flag_reason": "Opinion",
+      "trust_score": 0.7,
+      "reasoning": "The lack of a public dataset is a valid concern regarding transparency, but not necessarily indicative of malicious intent."
+    },
+    {
+      "analysis_id": "anl_14f3b129439e",
+      "evidence_id": "evd_25e611a28fa7",
+      "cycle_id": null,
+      "flag_reason": "Unverified Claim",
+      "trust_score": 0.3,
+      "reasoning": "The statement is vague and lacks specific details to assess its trustworthiness."
+    },
+    {
+      "analysis_id": "anl_a1651dca1751",
+      "evidence_id": "evd_1b6a3e499212",
+      "cycle_id": null,
+      "flag_reason": "Factual Report",
+      "trust_score": 0.9,
+      "reasoning": "This is a neutral statement indicating interest in the project."
+    }
+  ],
+  "graph_context": {
+    "nodes": [
+      {
+        "id": "media_eeae5a9fd8bc",
+        "type": "MEDIA"
+      },
+      {
+        "id": "media_aaf911057d17",
+        "type": "MEDIA"
+      },
+      {
+        "id": "@nikhil_rudresh",
+        "type": "AUTHOR"
+      },
+      {
+        "id": "media_fb293ea123d4",
+        "type": "MEDIA"
+      },
+      {
+        "id": "media_5fe7edd1b277",
+        "type": "MEDIA"
+      },
+      {
+        "id": "media_78e8e44f3dbb",
+        "type": "MEDIA"
+      },
+      {
+        "id": "@an95551",
+        "type": "AUTHOR"
+      },
+      {
+        "id": "media_8a20b282563d",
+        "type": "MEDIA"
+      },
+      {
+        "id": "@aryan36007",
+        "type": "AUTHOR"
+      },
+      {
+        "id": "media_896acc591846",
+        "type": "MEDIA"
+      },
+      {
+        "id": "media_efbabc2f7f56",
+        "type": "MEDIA"
+      },
+      {
+        "id": "media_ffa95bc5345d",
+        "type": "MEDIA"
+      }
+    ],
+    "edges": [
+      {
+        "source": "@aryan36007",
+        "target": "media_896acc591846",
+        "label": "POSTED"
+      },
+      {
+        "source": "@aryan36007",
+        "target": "media_aaf911057d17",
+        "label": "POSTED"
+      },
+      {
+        "source": "@nikhil_rudresh",
+        "target": "media_efbabc2f7f56",
+        "label": "POSTED"
+      },
+      {
+        "source": "@aryan36007",
+        "target": "media_eeae5a9fd8bc",
+        "label": "POSTED"
+      },
+      {
+        "source": "@an95551",
+        "target": "media_fb293ea123d4",
+        "label": "POSTED"
+      },
+      {
+        "source": "@aryan36007",
+        "target": "media_ffa95bc5345d",
+        "label": "POSTED"
+      },
+      {
+        "source": "@aryan36007",
+        "target": "media_8a20b282563d",
+        "label": "POSTED"
+      },
+      {
+        "source": "@aryan36007",
+        "target": "media_78e8e44f3dbb",
+        "label": "POSTED"
+      },
+      {
+        "source": "@nikhil_rudresh",
+        "target": "media_5fe7edd1b277",
+        "label": "POSTED"
+      }
+    ]
+  },
+  "investigation_cycles": [],
+  "next_query": null,
+  "final_summary": null,
+  "investigated_queries": [],
+  "investigated_entities": [],
+  "max_cycles": 5,
+  "investigation_complete_reason": "Refiner proposed query targeting already investigated entities []. All relevant leads exhausted.",
+  "cycle_decisions": [
+    {
+      "cycle_id": 0,
+      "query": "Investigate data integrity issues at veris truth  [X : @VerisTruth and #VerisProject]",
+      "decision_type": "conclude",
+      "reasoning": "Refiner proposed query targeting already investigated entities []. All relevant leads exhausted.",
+      "timestamp": "2025-09-04T02:21:11.054709",
+      "evidence_count": 18,
+      "analysis_count": 18
+    }
+  ],
+  "final_conclusion": {
+    "investigation_summary": {
+      "initial_query": "Investigate data integrity issues at veris truth  [X : @VerisTruth and #VerisProject]",
+      "total_cycles_completed": 0,
+      "total_evidence_collected": 0,
+      "total_analysis_completed": 0,
+      "entities_investigated": [],
+      "completion_reason": "Refiner proposed query targeting already investigated entities []. All relevant leads exhausted.",
+      "completion_timestamp": "2025-09-04T02:21:13.073244"
+    },
+    "threat_assessment": {
+      "threat_level": "MODERATE",
+      "average_trust_score": 0.5,
+      "summary": "Mixed evidence quality with some concerning patterns requiring monitoring."
+    },
+    "investigation_timeline": [
+      {
+        "cycle": 0,
+        "query": "Investigate data integrity issues at veris truth  [X : @VerisTruth and #VerisProject]",
+        "decision": "conclude",
+        "reasoning": "Refiner proposed query targeting already investigated entities []. All relevant leads exhausted.",
+        "evidence_found": 18,
+        "timestamp": "2025-09-04T02:21:11.054709"
+      }
+    ],
+    "recommendations": [
+      "No specific entities require monitoring",
+      "Trust level: MODERATE - Continued monitoring sufficient",
+      "Investigation depth: Limited - 0 cycles completed"
+    ]
+  }
+}

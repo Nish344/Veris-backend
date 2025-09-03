@@ -1,0 +1,30 @@
+{
+  "initial_query": "Investigate rumors about @VerisTruth's data integrity",
+  "current_query": "Get the X profile for username VerisTruth",
+  "new_evidence": [
+    {
+      "evidence_id": "evd_3de981b54d9c",
+      "investigation_id": null,
+      "cycle_id": null,
+      "source_type": "twitter",
+      "url": "https://x.com/VerisTruth",
+      "content": "Full profile analysis of @Veris: {\n  \"author_id\": \"Veris\",\n  \"username\": \"Veris\",\n  \"display_name\": \"VerisTruth\",\n  \"bio\": \"Veris the Agentic Truth Engine\",\n  \"followers_count\": 0,\n  \"following_count\": 11,\n  \"posts_count\": \"\",\n  \"account_created_at\": \"2025-08-01T00:00:00\",\n  \"is_verified\": false,\n  \"profile_url\": \"https://x.com/VerisTruth\",\n  \"location\": null,\n  \"recent_posts\": [\n    {\n      \"post_id\": \"1961449797094969393\",\n      \"post_url\": \"https://x.com/aryan36007/status/1961449797094969393\",\n      \"text\": \"\\\"Just came across @VerisTruth \\u2014 seems like they\\u2019re working on tracking online info. Interesting project. #VerisProject\\\"\",\n      \"created_at\": \"2025-09-02T00:05:33.611398\",\n      \"like_count\": 0,\n      \"reply_count\": 0,\n      \"retweet_count\": 0,\n      \"view_count\": 19,\n      \"media\": [],\n      \"mentioned_accounts\": [\n        \"@VerisTruth\"\n      ],\n      \"hashtags\": [\n        \"#VerisProject\\\"\"\n      ]\n    }\n  ]\n}",
+      "timestamp": "2025-09-02 00:05:33.739678",
+      "author_id": "@Veris",
+      "media": [],
+      "mentioned_accounts": [],
+      "hashtags": [],
+      "raw_data": null
+    }
+  ],
+  "new_analysis": [
+    {
+      "analysis_id": "anl_5a7abedb9bf6",
+      "evidence_id": "evd_3de981b54d9c",
+      "cycle_id": null,
+      "flag_reason": "Profile Analysis",
+      "trust_score": 0.2,
+      "reasoning": "The Twitter profile shows a newly created account with limited engagement, suggesting potential for manipulation or inauthenticity."
+    }
+  ]
+}

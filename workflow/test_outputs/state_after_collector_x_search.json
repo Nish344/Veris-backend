@@ -1,0 +1,51 @@
+{
+  "initial_query": "Investigate rumors about @VerisTruth's data integrity",
+  "current_query": "Find tweets about #VerisProject",
+  "new_evidence": [
+    {
+      "evidence_id": "evd_882c6d69e696",
+      "investigation_id": null,
+      "cycle_id": null,
+      "source_type": "twitter",
+      "url": "https://x.com/aryan36007/status/1961795335489253473",
+      "content": "\"Just came across \n@VerisTruth\n seems like they\u2019re working on tracking online info and reported suggest issues in Data Integrity #VerisProject\"",
+      "timestamp": "2025-09-02 00:05:22.697563",
+      "author_id": "@aryan36007",
+      "media": [
+        {
+          "media_id": "media_20bff75b1303",
+          "media_type": "IMAGE",
+          "url": "https://pbs.twimg.com/media/GzmyP_saAAAZX_d?format=jpg&name=small",
+          "local_path": null,
+          "access_url": null
+        }
+      ],
+      "mentioned_accounts": [
+        "@VerisTruth"
+      ],
+      "hashtags": [
+        "#VerisProject"
+      ],
+      "raw_data": null
+    },
+    {
+      "evidence_id": "evd_3ad831dd1c48",
+      "investigation_id": null,
+      "cycle_id": null,
+      "source_type": "twitter",
+      "url": "https://x.com/aryan36007/status/1961449797094969393",
+      "content": "\"Just came across \n@VerisTruth\n \u2014 seems like they\u2019re working on tracking online info. Interesting project. #VerisProject\"",
+      "timestamp": "2025-09-02 00:05:22.777472",
+      "author_id": "@aryan36007",
+      "media": [],
+      "mentioned_accounts": [
+        "@VerisTruth"
+      ],
+      "hashtags": [
+        "#VerisProject"
+      ],
+      "raw_data": null
+    }
+  ],
+  "new_analysis": []
+}
