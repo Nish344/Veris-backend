@@ -12,6 +12,7 @@ import os
 import re
 from datetime import datetime
 from typing import List, Dict, Any
+import logging
 
 from langchain_core.messages import AIMessage, ToolMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -27,7 +28,12 @@ from schema import EvidenceItem, MediaItem, MediaType, SourceType
 from tools.playwright_tool import search_and_scrape_x, scrape_single_page
 from tools.instagram_scrapper_tool import search_and_scrape_instagram
 from tools.author_profiler_tool import get_author_profile
-# from tools.tavily_tool import tavily_search
+from tools.reddit_tool import enhanced_reddit_search, reddit_subreddit_analysis
+from tools.tavily_tool import tavily_search_tool
+from tools.search_tool import browser_search
+from tools.browser_tool import enhanced_screenshot, screenshot_with_interaction
+from tools.reverse_image_search_tool import reverse_image_search
+from tools.network_graph_analyzer import analyze_collected_evidence
 
 load_dotenv()
 
@@ -47,169 +53,74 @@ async def collector_node(state: Dict[str, Any], tool_executor: ToolNode, llm_wit
         tool_descriptions += f"- Tool Name: `{tool.name}`\n"
         tool_descriptions += f"  - Description: {tool.description}\n\n"
 
-    planner_prompt = f"""You are a highly intelligent query dispatcher. Your sole purpose is to analyze a complex user request and map it to a single, concrete data collection tool call.
+    planner_prompt = f"""You are a highly intelligent query dispatcher. Your sole purpose is to analyze a complex user request and map it to as many concrete data collection tool calls as possible to gather the most comprehensive raw data available.
 
 Available Tools:
 {tool_descriptions}
+the tool listed as "playwright" is used scrape x also called twitter
 User Request: "{state['current_query']}"
 
 Follow these steps to make your decision:
-1.  Analyze the User Request to understand the core intent.
-2.  If the request directly maps to a tool's description (e.g., "Get the profile for @user" maps to `get_author_profile`), select that tool and the appropriate arguments.
-3.  If the request is more analytical or abstract (e.g., "Analyze interactions of @user" or "Find the origin of media_xyz"), your task is to first extract the primary entity from the request (e.g., "@user" or "media_xyz"). Then, select the best tool to gather MORE raw information about that entity. For general topics, authors, or media IDs, `search_and_scrape_x` is the best default tool.
-4.  Your goal is to ALWAYS select a tool that can gather more raw data. Do not attempt to answer the user's query directly. Your only job is to invoke a tool.
+1. Analyze the User Request to understand the core intent and identify all relevant entities (e.g., usernames like @user1 @user2, hashtags like #hashtag, platforms like Instagram or X/Twitter, media IDs, etc.).
+2. If the request directly maps to a tool's description (e.g., "Get the profile for @user" maps to `get_author_profile`), select that tool with the appropriate arguments. If there are multiple similar entities (e.g., multiple usernames), invoke the tool multiple times—once for each entity.
+3. If the request is more analytical or abstract (e.g., "Analyze interactions of @user1 and @user2" or "Find the origin of media_xyz"), extract all primary entities from the request (e.g., "@user1", "@user2", or "media_xyz"). Then, select all possible tools that could gather MORE raw information about each entity. For general topics, authors, or media IDs, `search_and_scrape_x` is a good default tool, but always consider and include other platforms and tools like Instagram, Reddit, web searches, etc., if they could provide additional data.
+4. If the request involves multiple platforms (e.g., Instagram and X/Twitter) or multiple entities, select and invoke all relevant tools to cover every aspect comprehensively (e.g., use `search_and_scrape_instagram` for Instagram usernames, `search_and_scrape_x` for X queries, `enhanced_reddit_search` for Reddit, etc.). Maximize coverage by using every tool that could plausibly return useful data.
+5. Your goal is to ALWAYS select and invoke as many tools as possible that can gather more raw data across all identified entities and platforms. Do not hold back—err on the side of using more tools to ensure thorough data collection. Do not attempt to answer the user's query directly. Your only job is to invoke the appropriate tool(s)—invoke multiple (or all relevant) in one response.
 
-Based on this logic, decide on the single tool to call to move the investigation forward.
+Based on this logic, decide on the tool(s) to call to move the investigation forward. Generate as many tool calls as needed to maximize data gathering, especially for multiple entities or platforms.
 """
     
-    # 1. Plan - Use the LLM to decide which tool to call
+    # 1. Plan - Use the LLM to decide which tool(s) to call
     plan_response: AIMessage = await llm_with_tools.ainvoke(planner_prompt)
     
     if not plan_response.tool_calls:
-        print("Collector: Planner did not select a tool. Returning no new evidence.")
+        print("Collector: Planner did not select any tools. Returning no new evidence.")
         return {"new_evidence": []}
 
-    # 2. Execute - Run the selected tool
-    print(f"Collector: Planner selected tool '{plan_response.tool_calls[0]['name']}' with args {plan_response.tool_calls[0]['args']}")
-    
-    # Pass the AIMessage from the planner inside a list to the ToolNode
-    tool_output_messages: List[ToolMessage] = await tool_executor.ainvoke([plan_response])
-    
-    # 3. Format - Convert raw tool output into structured EvidenceItem objects
-    raw_results_str = tool_output_messages[0].content
-    tool_name = plan_response.tool_calls[0]['name'] # Get tool name from the original plan
-    new_evidence = _format_tool_results(raw_results_str, tool_name)
-    
-    print(f"Collector: Formatted {len(new_evidence)} new evidence items.")
+    # 2. Execute - Manually run the selected tools to get raw EvidenceItem lists
+    print(f"Collector: Planner selected {len(plan_response.tool_calls)} tool calls.")
+    new_evidence = []
+    for tool_call in plan_response.tool_calls:
+        tool_name = tool_call['name']
+        args = tool_call['args']
+        print(f"Executing tool '{tool_name}' with args: {args}")
+        
+        tool = tool_dict.get(tool_name)
+        if tool:
+            try:
+                if hasattr(tool, 'ainvoke'):
+                    result = await tool.ainvoke(args)
+                else:
+                    result = tool.invoke(args)
+                
+                if isinstance(result, list):
+                    new_evidence.extend(result)
+                else:
+                    new_evidence.append(result)
+            except Exception as e:
+                print(f"Error executing tool '{tool_name}': {e}")
+        else:
+            print(f"Tool '{tool_name}' not found.")
+
+    print(f"Collector: Collected {len(new_evidence)} new evidence items.")
     return {"new_evidence": new_evidence}
 
-
-# =============================================================================
-# workflow/collector.py - CORRECTED _format_tool_results function
-# =============================================================================
-
-def _format_tool_results(results_str: str, tool_name: str):
-    """
-    Parses the raw JSON string from a tool into a list of EvidenceItem objects.
-    CORRECTED: Now properly formats all fields according to EvidenceItem schema.
-    """
-    try:
-        import json
-        results = json.loads(results_str)
-        if not isinstance(results, list):
-            results = [results]
-    except (json.JSONDecodeError, TypeError):
-        print(f"Warning: Could not parse JSON from tool '{tool_name}'. Raw output: '{results_str[:200]}...'")
-        return []
-
-    # Updated source map to use lowercase values matching the SourceType enum in schema.py
-    source_map = {
-        "search_and_scrape_x": "twitter",
-        "search_and_scrape_instagram": "instagram", 
-        "scrape_single_page": "web_page",
-        "get_author_profile": "twitter",
-    }
-    
-    source_type = source_map.get(tool_name, "web_page")
-
-    formatted_evidence = []
-    for item in results:
-        try:
-            from schema import EvidenceItem, MediaItem
-            from datetime import datetime
-            
-            # Handle slight variations in keys
-            url = item.get("url") or item.get("post_url") or item.get("profile_url")
-            
-            # Format content based on tool type
-            content = ""
-            if tool_name == "get_author_profile":
-                # For author profiles, create a readable summary but keep full data in raw_data
-                profile_data = item
-                username = profile_data.get("username", "unknown")
-                display_name = profile_data.get("display_name", "")
-                bio = profile_data.get("bio", "")
-                followers = profile_data.get("followers_count", 0)
-                following = profile_data.get("following_count", 0)
-                posts_count = profile_data.get("posts_count", 0)
-                
-                content = f"Profile: @{username}"
-                if display_name and display_name != f"@{username}":
-                    content += f" ({display_name})"
-                if bio:
-                    content += f" - {bio}"
-                content += f" | Followers: {followers}, Following: {following}, Posts: {posts_count}"
-                
-                # Include recent posts summary if available
-                recent_posts = profile_data.get("recent_posts", [])
-                if recent_posts:
-                    content += f" | Recent activity: {len(recent_posts)} recent posts"
-            else:
-                # For other tools, use the text/content field
-                content = item.get("content") or item.get("text") or ""
-
-            # Media items need to be converted to MediaItem objects
-            media_items = []
-            for media_data in item.get("media", []):
-                if isinstance(media_data, dict):
-                    # Ensure media_data has required fields for MediaItem
-                    media_dict = {
-                        "media_type": media_data.get("media_type", "IMAGE"),
-                        "url": media_data.get("url", ""),
-                        **{k: v for k, v in media_data.items() if k in ["media_id", "local_path", "access_url"]}
-                    }
-                    media_items.append(MediaItem(**media_dict))
-                else:
-                    media_items.append(media_data)
-
-            # Handle timestamp parsing more robustly
-            timestamp = item.get("timestamp") or item.get("created_at") or item.get("account_created_at")
-            if timestamp:
-                try:
-                    if isinstance(timestamp, str):
-                        # Handle different timestamp formats
-                        timestamp = timestamp.replace('Z', '+00:00')
-                        parsed_timestamp = datetime.fromisoformat(timestamp)
-                    else:
-                        parsed_timestamp = datetime.now()
-                except ValueError:
-                    parsed_timestamp = datetime.now()
-            else:
-                parsed_timestamp = datetime.now()
-
-            # Extract mentioned accounts and hashtags
-            mentioned_accounts = item.get("mentioned_accounts", [])
-            hashtags = item.get("hashtags", [])
-            
-            # For profile tools, extract mentions/hashtags from recent posts
-            if tool_name == "get_author_profile" and "recent_posts" in item:
-                for post in item["recent_posts"]:
-                    mentioned_accounts.extend(post.get("mentioned_accounts", []))
-                    hashtags.extend(post.get("hashtags", []))
-            
-            # Remove duplicates while preserving order
-            mentioned_accounts = list(dict.fromkeys(mentioned_accounts))
-            hashtags = list(dict.fromkeys(hashtags))
-
-            evidence = EvidenceItem(
-                source_type=source_type,
-                url=url,
-                content=content or "",
-                timestamp=parsed_timestamp,
-                author_id=item.get("author_id") or item.get("username") or "unknown",
-                media=media_items,
-                mentioned_accounts=mentioned_accounts,
-                hashtags=hashtags,
-                raw_data=item  # Store the complete original data here
-            )
-            formatted_evidence.append(evidence)
-            
-        except Exception as e:
-            print(f"Warning: Failed to format an item from '{tool_name}'. Error: {e}. Item: {item}")
-            continue
-            
-    return formatted_evidence
-
+# Global tool list and dict for lookup
+tools = [
+    search_and_scrape_x,
+    scrape_single_page,
+    search_and_scrape_instagram,
+    get_author_profile,
+    enhanced_reddit_search,
+    reddit_subreddit_analysis,
+    tavily_search_tool,
+    browser_search,
+    enhanced_screenshot,
+    screenshot_with_interaction,
+    reverse_image_search,
+    analyze_collected_evidence  # Included, but use cautiously as it requires evidence file
+]
+tool_dict = {t.name: t for t in tools}
 
 # --- Test Harnesses ---
 
@@ -217,13 +128,12 @@ def _format_tool_results(results_str: str, tool_name: str):
 async def standalone_test_runner():
     print("\n--- Running Collector Standalone Test ---")
     
-    tools = [search_and_scrape_x, scrape_single_page, get_author_profile]
-    tool_executor = ToolNode(tools)
+    tool_executor = ToolNode(tools)  # Still used if needed, but not for execution
     llm_with_tools = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest", temperature=0).bind_tools(tools)
     
     mock_state = {
         "initial_query": "Standalone Test",
-        "current_query": "scrape https://www.example.com"
+        "current_query": "scrape instagram user @laal_bandar05 and #VerisProject on x"
     }
     
     result = await collector_node(mock_state, tool_executor, llm_with_tools)
@@ -247,8 +157,7 @@ async def refiner_loop_test_runner():
         print(f"No test files found in {REFINER_OUTPUT_DIR}.")
         return
 
-    tools = [search_and_scrape_x, search_and_scrape_instagram, scrape_single_page, get_author_profile]
-    tool_executor = ToolNode(tools)
+    tool_executor = ToolNode(tools)  # Still used if needed
     llm_with_tools = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest", temperature=0).bind_tools(tools)
 
     for test_file in test_files:
@@ -287,4 +196,3 @@ if __name__ == '__main__':
     # You can run either or both tests
     asyncio.run(standalone_test_runner())
     # asyncio.run(refiner_loop_test_runner())
-

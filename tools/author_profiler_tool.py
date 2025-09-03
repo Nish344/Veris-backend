@@ -1,19 +1,20 @@
+# author_profiler_tool.py - Corrected
 import aiohttp
 import asyncio
-import json
-import logging
 import os
 from datetime import datetime
 from urllib.parse import urljoin
 from typing import Optional, List
+import logging
 
 from langchain_core.tools import tool
 from playwright.async_api import async_playwright
 from pydantic import BaseModel, Field, HttpUrl
+from schema import EvidenceItem, MediaItem, SourceType
 
 # --- MODELS ---
 class PostMedia(BaseModel):
-    media_type: str = "image"
+    media_type: str = "IMAGE"  # default uppercase
     url: HttpUrl
 
 class RecentPost(BaseModel):
@@ -25,7 +26,7 @@ class RecentPost(BaseModel):
     reply_count: int
     retweet_count: int
     view_count: int
-    media: List[PostMedia] = Field(default_factory=list)
+    media: List[MediaItem] = Field(default_factory=list)   # use schema.MediaItem here
     mentioned_accounts: List[str] = Field(default_factory=list)
     hashtags: List[str] = Field(default_factory=list)
 
@@ -50,10 +51,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 def parse_engagement_string(text: Optional[str]) -> int:
-    """
-    Accepts strings like '1,234 Likes', '10.5K', '2M Views', '12 replies', or None.
-    Returns int (0 on failure).
-    """
+    """Accepts strings like '1,234 Likes', '10.5K', '2M Views', '12 replies', or None. Returns int (0 on failure)."""
     try:
         if not text:
             return 0
@@ -85,18 +83,19 @@ async def safe_attr(locator, attr: str, default: Optional[str] = None) -> Option
         return default
 
 @tool("get_author_profile")
-async def get_author_profile(username: str, max_posts: int = 4) -> str:
+async def get_author_profile(username: str, max_posts: int = 4) -> list[EvidenceItem]:
     """
     Scrape an X profile and recent posts.
-    Returns JSON with profile details + recent posts.
+    Returns a list of EvidenceItem objects with profile details.
     Requires a valid Playwright storage state.
     """
     if not os.path.exists(X_AUTH_FILE):
-        return json.dumps({"error": f"Authentication file '{X_AUTH_FILE}' not found."})
+        return [EvidenceItem(content=f"Authentication file '{X_AUTH_FILE}' not found.", source_type=SourceType.TWITTER)]
 
     logger.info(f"Scraping profile: @{username}")
     profile_url = f"https://x.com/{username}"
 
+    evidence_items = []
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context(storage_state=X_AUTH_FILE)
@@ -118,25 +117,27 @@ async def get_author_profile(username: str, max_posts: int = 4) -> str:
             followers_count = parse_engagement_string(followers_text)
 
             location = await safe_text(header.locator('span[data-testid="UserLocation"]'), default=None)
-            join_date_str = await safe_text(header.locator('span[data-testid="UserJoinDate"]'), default="Joined January 1970")
-            try:
-                join_date = datetime.strptime(join_date_str.replace("Joined ", ""), "%B %Y")
-            except Exception:
-                join_date = datetime(1970, 1, 1)
+            join_date_str = await safe_text(header.locator('span[data-testid="UserJoinDate"]'), default=None)
+            join_date = datetime.now()
+            if join_date_str and join_date_str.startswith("Joined "):
+                try:
+                    join_date = datetime.strptime(join_date_str.replace("Joined ", ""), "%B %Y")
+                except Exception:
+                    join_date = datetime.now()
 
             is_verified = (await header.locator('svg[data-testid="icon-verified"]').count()) > 0
-
             posts_count_text = await safe_attr(page.locator('div[role="navigation"] a[href$="/posts"]'), 'title', default="")
 
-            # Scroll to load posts
-            await page.mouse.wheel(0, 2000)
-            await asyncio.sleep(1.5)
+            # Scroll more reliably to load posts
+            for _ in range(3):
+                await page.mouse.wheel(0, 3000)
+                await asyncio.sleep(1.5)
 
             tweet_locator = page.locator('article[data-testid="tweet"]')
             total = await tweet_locator.count()
             limit = min(total, max_posts)
 
-            scraped_posts: List[RecentPost] = []
+            scraped_posts = []
             for i in range(limit):
                 t = tweet_locator.nth(i)
                 try:
@@ -165,36 +166,34 @@ async def get_author_profile(username: str, max_posts: int = 4) -> str:
                         except Exception:
                             pass
 
-                    post_media_items: List[PostMedia] = []
+                    post_media_items = []
                     imgs = t.locator('div[data-testid="tweetPhoto"] img')
                     img_count = await imgs.count()
                     for img_idx in range(img_count):
                         src = await imgs.nth(img_idx).get_attribute('src')
                         if src:
-                            post_media_items.append(PostMedia(media_type="image", url=src))
+                            post_media_items.append(MediaItem(media_type="IMAGE", url=src))
 
                     mentioned_accounts = [word for word in text.split() if word.startswith('@')]
-                    hashtags = [word for word in text.split() if word.startswith('#')]
+                    hashtags = [word.rstrip('",.') for word in text.split() if word.startswith('#')]
 
-                    scraped_posts.append(
-                        RecentPost(
-                            post_id=tweet_id,
-                            post_url=tweet_url,
-                            text=text,
-                            created_at=created_at,
-                            like_count=likes,
-                            reply_count=replies,
-                            retweet_count=retweets,
-                            view_count=views,
-                            media=post_media_items,
-                            mentioned_accounts=mentioned_accounts,
-                            hashtags=hashtags
-                        )
-                    )
+                    scraped_posts.append(RecentPost(
+                        post_id=tweet_id,
+                        post_url=tweet_url,
+                        text=text,
+                        created_at=created_at,
+                        like_count=likes,
+                        reply_count=replies,
+                        retweet_count=retweets,
+                        view_count=views,
+                        media=post_media_items,
+                        mentioned_accounts=mentioned_accounts,
+                        hashtags=hashtags
+                    ))
                 except Exception as e:
                     logger.warning(f"Skipping tweet {i+1}/{limit}: {e}")
 
-            final_profile = AuthorProfile(
+            profile = AuthorProfile(
                 author_id=user_handle or f"@{username}",
                 username=(user_handle or f"@{username}").replace("@", ""),
                 display_name=display_name or username,
@@ -209,19 +208,41 @@ async def get_author_profile(username: str, max_posts: int = 4) -> str:
                 recent_posts=scraped_posts
             )
 
-            return final_profile.model_dump_json(indent=2)
+            content = f"Profile: @{profile.username}"
+            if display_name and display_name != f"@{profile.username}":
+                content += f" ({display_name})"
+            if bio:
+                content += f" - {bio}"
+            content += f" | Followers: {followers_count}, Following: {following_count}, Posts: {posts_count_text or 'N/A'}"
+            if scraped_posts:
+                content += f" | Recent activity: {len(scraped_posts)} recent posts"
+
+            evidence_items.append(EvidenceItem(
+                source_type=SourceType.PROFILE_ANALYSIS,
+                url=profile_url,
+                content=content,
+                timestamp=join_date,
+                author_id=profile.author_id,
+                mentioned_accounts=sum((p.mentioned_accounts for p in scraped_posts), []),
+                hashtags=sum((p.hashtags for p in scraped_posts), []),
+                media=sum((p.media for p in scraped_posts), []),
+                raw_data=profile.model_dump()
+            ))
+            return evidence_items
 
         except Exception as e:
             logger.exception(f"Error while scraping @{username}: {e}")
-            return json.dumps({"error": f"Unexpected error scraping '{username}': {e}"})
+            return [EvidenceItem(content=f"Unexpected error scraping '{username}': {e}", source_type=SourceType.TWITTER)]
         finally:
             await browser.close()
 
 # Example run
 async def main():
-    target_user = "aryan36007"
-    profile_json = await get_author_profile.ainvoke({"username": target_user})
-    print(profile_json)
+    target_user = "elonmusk"
+    results = await get_author_profile.ainvoke({"username": target_user})
+    print(results)
+    for item in results:
+        print(item.model_dump_json(indent=2))
 
 if __name__ == "__main__":
     asyncio.run(main())
