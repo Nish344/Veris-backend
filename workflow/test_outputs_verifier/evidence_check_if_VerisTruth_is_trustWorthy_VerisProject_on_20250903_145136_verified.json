@@ -1,0 +1,174 @@
+{
+  "source_file": "evidence_check_if_VerisTruth_is_trustWorthy_VerisProject_on_20250903_145136.json",
+  "original_evidence": [
+    {
+      "evidence_id": "evd_e6dc15675423",
+      "investigation_id": null,
+      "cycle_id": null,
+      "source_type": "twitter",
+      "url": "https://x.com/aryan36007/status/1961795335489253473",
+      "content": "\"Just came across @VerisTruth seems like they\u2019re working on tracking online info and reported suggest issues in Data Integrity #VerisProject\"",
+      "timestamp": "2025-09-03 14:50:59.456233",
+      "author_id": "@aryan36007",
+      "media": [
+        {
+          "media_id": "media_15b1bf19856b",
+          "media_type": "IMAGE",
+          "url": "https://pbs.twimg.com/profile_images/1728018514412457984/N8mToCZ7_normal.png",
+          "local_path": "screenshots/x_image_20250903_145043_001.jpg",
+          "access_url": null
+        },
+        {
+          "media_id": "media_cca8697dc254",
+          "media_type": "IMAGE",
+          "url": "https://pbs.twimg.com/media/GzmyP_saAAAZX_d?format=jpg&name=small",
+          "local_path": "screenshots/x_image_20250903_145043_002.jpg",
+          "access_url": null
+        }
+      ],
+      "mentioned_accounts": [],
+      "hashtags": [],
+      "raw_data": {
+        "scraped_at": "2025-09-03T14:50:59.456246"
+      }
+    },
+    {
+      "evidence_id": "evd_6f8fb0780c86",
+      "investigation_id": null,
+      "cycle_id": null,
+      "source_type": "twitter",
+      "url": "https://x.com/aryan36007/status/1961449797094969393",
+      "content": "\"Just came across @VerisTruth \u2014 seems like they\u2019re working on tracking online info. Interesting project. #VerisProject\"",
+      "timestamp": "2025-09-03 14:50:59.540351",
+      "author_id": "@aryan36007",
+      "media": [],
+      "mentioned_accounts": [],
+      "hashtags": [],
+      "raw_data": {
+        "scraped_at": "2025-09-03T14:50:59.540361"
+      }
+    },
+    {
+      "evidence_id": "evd_4e151627b203",
+      "investigation_id": null,
+      "cycle_id": null,
+      "source_type": "twitter",
+      "url": "https://x.com/aryan36007/status/1961795335489253473",
+      "content": "\"Just came across @VerisTruth seems like they\u2019re working on tracking online info and reported suggest issues in Data Integrity #VerisProject\"",
+      "timestamp": "2025-09-03 14:51:17.747692",
+      "author_id": "@aryan36007",
+      "media": [
+        {
+          "media_id": "media_da96fde039bd",
+          "media_type": "IMAGE",
+          "url": "https://pbs.twimg.com/profile_images/1728018514412457984/N8mToCZ7_normal.png",
+          "local_path": "screenshots/x_image_20250903_145059_001.jpg",
+          "access_url": null
+        },
+        {
+          "media_id": "media_761d60a893a3",
+          "media_type": "IMAGE",
+          "url": "https://pbs.twimg.com/media/GzmyP_saAAAZX_d?format=jpg&name=small",
+          "local_path": "screenshots/x_image_20250903_145059_002.jpg",
+          "access_url": null
+        }
+      ],
+      "mentioned_accounts": [],
+      "hashtags": [],
+      "raw_data": {
+        "scraped_at": "2025-09-03T14:51:17.747698"
+      }
+    },
+    {
+      "evidence_id": "evd_5af79e14257b",
+      "investigation_id": null,
+      "cycle_id": null,
+      "source_type": "twitter",
+      "url": "https://x.com/aryan36007/status/1961449797094969393",
+      "content": "\"Just came across @VerisTruth \u2014 seems like they\u2019re working on tracking online info. Interesting project. #VerisProject\"",
+      "timestamp": "2025-09-03 14:51:17.784155",
+      "author_id": "@aryan36007",
+      "media": [],
+      "mentioned_accounts": [],
+      "hashtags": [],
+      "raw_data": {
+        "scraped_at": "2025-09-03T14:51:17.784168"
+      }
+    },
+    {
+      "evidence_id": "evd_fa98edf5df52",
+      "investigation_id": null,
+      "cycle_id": null,
+      "source_type": "instagram",
+      "url": "https://www.instagram.com/p/DN_Mb2Zid7D/",
+      "content": "Came accross a Project which had a sever data leak #VerisDataLeak",
+      "timestamp": "2025-09-03 14:51:35.305959",
+      "author_id": "laal_bandar05",
+      "media": [
+        {
+          "media_id": "media_fdc883ad1a7a",
+          "media_type": "IMAGE",
+          "url": "https://instagram.fblr22-2.fna.fbcdn.net/v/t51.2885-15/541441082_17843656107564823_1863113883532833273_n.heic?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjEwNzl4NzE5LnNkci5mODI3ODcuZGVmYXVsdF9pbWFnZS5jMiJ9&_nc_ht=instagram.fblr22-2.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2QExclW3L1AzCT3VYPgLmNESQkDaK42g3f7MQKz_J4I7m98rz3hBo3vuJUMUFgw-Kaw&_nc_ohc=xUAsJXemmpkQ7kNvwGmpq3j&_nc_gid=E_AS5pkK27Z1goRY5wxcUQ&edm=AONqaaQBAAAA&ccb=7-5&ig_cache_key=MzcxMDczOTMwODM3MTEwNzUyMw%3D%3D.3-ccb7-5&oh=00_AfbNV3qJFCtECdPyRej0KJRdWxf729mmSx-XGYbkPkuv8w&oe=68BDEA98&_nc_sid=4e3341",
+          "local_path": "pictures/ig_laalbandar05_DN_Mb2Zid7D.jpg",
+          "access_url": null
+        }
+      ],
+      "mentioned_accounts": [],
+      "hashtags": [],
+      "raw_data": {
+        "screenshot_path": "screenshots/ig_laalbandar05_DN_Mb2Zid7D.png",
+        "scraped_at": "2025-09-03T14:51:35.305975"
+      }
+    }
+  ],
+  "new_analysis": [
+    {
+      "analysis_id": "anl_353b26d7e793",
+      "evidence_id": "evd_e6dc15675423",
+      "cycle_id": null,
+      "flag_reason": "Social Media Claim",
+      "trust_score": 0.3,
+      "reasoning": "This Twitter post from an unverified account (@aryan36007) mentions @VerisTruth and reports potential data integrity issues.  The presence of media items is a positive, but without verifying the content of those media, their authenticity and relevance remain uncertain. The claim lacks specific details and relies on hearsay ('reported suggest issues'). Cross-referencing with other evidence from the same author strengthens the connection to the #VerisProject but doesn't inherently improve the trustworthiness of the claim itself. The temporal proximity to other similar posts suggests potential coordinated posting, which could indicate a coordinated disinformation campaign or genuine independent observations."
+    },
+    {
+      "analysis_id": "anl_c9a216c4795c",
+      "evidence_id": "evd_6f8fb0780c86",
+      "cycle_id": null,
+      "flag_reason": "Social Media Claim",
+      "trust_score": 0.2,
+      "reasoning": "Similar to evd_e6dc15675423, this Twitter post from the same unverified account lacks concrete evidence. The absence of supporting media and the vague nature of the content ('Interesting project') significantly reduce its trustworthiness.  While cross-referenced with other evidence, this doesn't improve its inherent lack of detail or source credibility. The temporal proximity to other similar posts from the same author raises concerns about potential coordinated activity."
+    },
+    {
+      "analysis_id": "anl_535e1d3e24ce",
+      "evidence_id": "evd_4e151627b203",
+      "cycle_id": null,
+      "flag_reason": "Social Media Claim",
+      "trust_score": 0.3,
+      "reasoning": "This Twitter post, again from @aryan36007, is almost identical to evd_e6dc15675423, including the mention of data integrity issues and the presence of media.  The repetition across multiple posts from the same account, while strengthening the cross-reference, doesn't improve the inherent weakness of the claim. The lack of verifiable details and the unverified source remain significant concerns. The inclusion of media requires further analysis of the media content itself to assess its authenticity and relevance."
+    },
+    {
+      "analysis_id": "anl_1cc01a6bbd03",
+      "evidence_id": "evd_5af79e14257b",
+      "cycle_id": null,
+      "flag_reason": "Social Media Claim",
+      "trust_score": 0.2,
+      "reasoning": "This Twitter post mirrors evd_6f8fb0780c86, sharing the same vague and unsubstantiated claim from the same unverified account. The lack of supporting evidence and the generic nature of the statement significantly lower its trustworthiness.  Cross-referencing with other posts from the same author doesn't enhance its credibility. The temporal proximity to other similar posts raises concerns about potential coordinated posting."
+    },
+    {
+      "analysis_id": "anl_c81d7061517e",
+      "evidence_id": "evd_fa98edf5df52",
+      "cycle_id": null,
+      "flag_reason": "Social Media Claim",
+      "trust_score": 0.4,
+      "reasoning": "This Instagram post from a different account (laal_bandar05) mentions a '#VerisDataLeak'. While the presence of media is a positive, the lack of specifics and the unverified nature of the account significantly limit its trustworthiness.  The claim is more specific than the Twitter posts, mentioning a data leak, but without further details or verification, it remains a low-trust claim.  The absence of cross-references with other evidence further weakens its reliability.  Further investigation into the account's history and the content of the media is necessary."
+    }
+  ],
+  "verification_summary": {
+    "total_items": 5,
+    "average_trust_score": 0.28,
+    "high_trust_items": 0,
+    "cross_reference_themes": 4
+  },
+  "processed_at": "2025-09-03T14:52:40.302420",
+  "verifier_version": "enhanced"
+}

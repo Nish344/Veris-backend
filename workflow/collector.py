@@ -37,6 +37,30 @@ from tools.network_graph_analyzer import analyze_collected_evidence
 
 load_dotenv()
 
+# --- Directory for Saving Evidence ---
+EVIDENCE_DIR = "evidence_list"
+
+# --- Ensure Evidence Directory Exists ---
+def ensure_evidence_dir():
+    if not os.path.exists(EVIDENCE_DIR):
+        os.makedirs(EVIDENCE_DIR)
+
+# --- Save Evidence to File ---
+def save_evidence(evidence: List[Any], query: str, prefix: str = "evidence"):
+    ensure_evidence_dir()
+    # Sanitize query to create a valid filename
+    sanitized_query = re.sub(r'[^\w\s-]', '', query).replace(' ', '_')[:50]
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"{prefix}_{sanitized_query}_{timestamp}.json"
+    filepath = os.path.join(EVIDENCE_DIR, filename)
+    
+    try:
+        with open(filepath, 'w') as f:
+            json.dump([item.model_dump() if hasattr(item, 'model_dump') else item for item in evidence], f, indent=2, default=str)
+        print(f"Evidence saved to {filepath}")
+    except Exception as e:
+        print(f"Error saving evidence to {filepath}: {e}")
+
 # --- Main Collector Node ---
 
 async def collector_node(state: Dict[str, Any], tool_executor: ToolNode, llm_with_tools: Any) -> Dict[str, Any]:
@@ -48,7 +72,6 @@ async def collector_node(state: Dict[str, Any], tool_executor: ToolNode, llm_wit
     
     # Dynamically build tool descriptions for the enhanced prompt
     tool_descriptions = ""
-    # The tools are attached to the LLM object after binding
     for tool in getattr(llm_with_tools, 'tools', []):
         tool_descriptions += f"- Tool Name: `{tool.name}`\n"
         tool_descriptions += f"  - Description: {tool.description}\n\n"
@@ -103,6 +126,11 @@ Based on this logic, decide on the tool(s) to call to move the investigation for
             print(f"Tool '{tool_name}' not found.")
 
     print(f"Collector: Collected {len(new_evidence)} new evidence items.")
+    
+    # 3. Save the evidence to a file
+    if new_evidence:
+        save_evidence(new_evidence, state['current_query'])
+    
     return {"new_evidence": new_evidence}
 
 # Global tool list and dict for lookup
@@ -110,7 +138,7 @@ tools = [
     search_and_scrape_x,
     scrape_single_page,
     search_and_scrape_instagram,
-    get_author_profile,
+    # get_author_profile,
     enhanced_reddit_search,
     reddit_subreddit_analysis,
     tavily_search_tool,
@@ -124,7 +152,6 @@ tool_dict = {t.name: t for t in tools}
 
 # --- Test Harnesses ---
 
-# Option 1: Standalone Test Runner
 async def standalone_test_runner():
     print("\n--- Running Collector Standalone Test ---")
     
@@ -133,7 +160,7 @@ async def standalone_test_runner():
     
     mock_state = {
         "initial_query": "Standalone Test",
-        "current_query": "scrape instagram user @laal_bandar05 and #VerisProject on x"
+        "current_query": "check if VerisTruth is trustWorthy #VerisProject on x, #VerisDataLeak on instagram"
     }
     
     result = await collector_node(mock_state, tool_executor, llm_with_tools)
@@ -142,8 +169,6 @@ async def standalone_test_runner():
     assert len(result.get("new_evidence", [])) > 0
     print("\n--- Standalone Test PASSED ---")
 
-
-# Option 2: Test Runner for Refiner Loop
 async def refiner_loop_test_runner():
     print("\n--- Running Collector Test on Refiner's Output ---")
     
@@ -177,7 +202,7 @@ async def refiner_loop_test_runner():
         # Prepare the state for the next cycle
         next_cycle_state = {
             "initial_query": refiner_state["initial_query"],
-            "current_query": next_query, # Use the refiner's output as the new query
+            "current_query": next_query,  # Use the refiner's output as the new query
             "investigation_cycles": refiner_state.get("investigation_cycles", []),
             # In a real run, old evidence would be archived here. For the test, we start fresh.
             "new_evidence": [],
@@ -190,7 +215,6 @@ async def refiner_loop_test_runner():
         print(f"\n  Collector produced {len(result.get('new_evidence', []))} new evidence items.")
         assert "new_evidence" in result
         print(f"--- Collector Test for {test_file} PASSED ---")
-
 
 if __name__ == '__main__':
     # You can run either or both tests
